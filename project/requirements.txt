@@ -1,8 +1,0 @@
-gunicorn
-flask
-cs50
-flask_session
-flask_mail
-werkzeug
-tempfile
-python -m pip install --upgrade pip
