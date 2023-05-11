@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}    Register    {% endblock %}
+
+{% block body %}
+
+    <div class="body">
+        <div class="login">
+            <form action="/register" method="post" class="form">
+                <h2 class="form_title">Register</h2>
+                <p class="form_title">Enter your details</p>
+                    <div class="form_div">
+                        <input autocomplete="off" type="text" id="email" class="form_input" name="email" placeholder=" ">
+                        <label for=" " class="form_label">Email</label>
+                    </div>
+                    <div class="form_div">
+                        <input autocomplete="off" type="text" id="email" class="form_input" name="full_name" placeholder=" ">
+                        <label for=" " class="form_label">Full Name</label>
+                    </div>
+                    <div class="form_div">
+                        <input autocomplete="off" type="text" class="form_input" name="username" placeholder=" ">
+                        <label for=" " class="form_label">Username</label>
+                    </div>
+                    <div class="form_div">
+                        <input name="password" type="password" class="form_input" placeholder=" ">
+                        <label for=" " class="form_label">Password</label>
+                    </div>
+                    <div class="form_div">
+                        <input  type="password" name="confirmation" class="form_input" placeholder=" ">
+                        <label for=" " class="form_label">Confirmation Password</label>
+                    </div>
+                    <input type="submit" onclick="valid()" class="form_button" value="Sign Up">
+            </form><br>
+            <div class="alink">
+                <a href="/" class="link"> Already have an account? login </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

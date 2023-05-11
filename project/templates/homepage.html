@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %} Homepage {% endblock %}
+
+{% block body %}
+<div>
+  <input type="text" class="kol" autocomplete="off" name="q">
+  <ul class="ul"></ul>
+</div>
+<section class="product_list">
+    <h1>Products</h1>
+    
+  <div class="productc">
+    
+    {% for product in products %}
+        <div class="card">
+          <div class="image"><img src="static/{{ product.img }}" alt="uo no"></div>
+              
+          <div class="text">{{ product.title }} </div>
+          <div class="product_price">₦ {{ product.price }}</div> {{ product.wallet }}
+
+          <form action="/product" method="post" class="form">
+              <input type="hidden" name="id" value="{{ product.id }}">
+              <input type="submit" value="Buy now" class="buy_button">
+          </form>
+          
+    </div>
+{% endfor %}
+  </div>
+</section>
+
+{% endblock %}

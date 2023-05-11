@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}   Login   {% endblock %}
+
+
+{% block body %}
+
+    <div class="body">
+        <div class="login">
+            <form action="/login" method="post"  class="form">
+            <h2 class="form_title">Welcome back</h2>
+            <p class="form_title">Enter your details</p>
+                <div class="form_div">
+                    <input autocomplete="off" type="text" class="form_input" id="username" name="username" placeholder=" ">
+                    <label for=" " class="form_label">Username</label>
+                    <p class="alert"></p>
+                </div>
+                <div class="form_div">
+                    <input name="password" type="password" id="password" class="form_input" placeholder=" ">
+                    <label for=" " class="form_label">Password</label>
+                    <p class="aler"></p>
+                </div>
+                <input type="submit" class="form_button" value="Sign in">
+            </form><br>
+            <a href="/register" class="">Register</a><br>
+            <a href="/forget" class="">Forget password?</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %} Forget {% endblock %}
+
+{% block body %}
+    <div class="body">
+        <div class="login">
+            <form action="/forget" method="post" class="form">
+            <h2 class="form_title">Change Password</h2>
+            <p class="form_title">Enter your details</p>
+                <div class="form_div">
+                    <input autocomplete="off" type="text" class="form_input" name="email" placeholder=" ">
+                    <label for=" " class="form_label">Email</label>
+                </div>
+                <input type="submit" class="form_button" value="Update">
+            </form>
+            <a href="/register" class="link">Register</a><br>
+            <a href="/forget" class="link">Forget password?</a>
+        </div>
+    </div>
+{% endblock %}
