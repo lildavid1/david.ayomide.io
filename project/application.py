@@ -55,7 +55,7 @@ def index():
     if "register_id" not in session:
         return redirect("/login")
     shows = db.execute("SELECT * FROM search LIMIT 20")
-    products = db.execute("SELECT * FOM products")
+    products = db.execute("SELECT * FROM products")
     return render_template("homepage.html", products=products, shows=shows)
 
 
