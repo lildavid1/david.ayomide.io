@@ -8,3 +8,4 @@ pip install tempfile
 python -m pip install --upgrade pip
 pip install psycopg
 pip install psycopg2-binary
+pip install psycopg2
