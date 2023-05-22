@@ -43,7 +43,6 @@ db = SQL(uri)
 
 # setting up session
 app.config["SESSION_TYPE"] = "filesystem"
-app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_FILE_DIR"] = mkdtemp()
 Session(app)
 
@@ -54,10 +53,10 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 @app.route("/")
 def index():
     if "register_id" not in session:
-        session.permanent = True
         return redirect("/login")
-
-    return render_template("homepage.html")
+    shows = db.execute("SELECT * FROM search LIMIT 20")
+    products = db.execute("SELECT * FOM products")
+    return render_template("homepage.html", products=products, shows=shows)
 
 
 @app.route("/register", methods=["GET", "POST"])
