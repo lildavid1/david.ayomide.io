@@ -20,12 +20,12 @@ import psycopg2
 app = Flask(__name__)
 
 # configure flask mail
-app.config["MAIL_DEFAULT_SENDER"] = "ShoppingComplex7@gmail.com"
+app.config["MAIL_DEFAULT_SENDER"] = "shoppingcomplex7@gmail.com"
 app.config["MAIL_PASSWORD"] = "nqlo jfce estd ehzm"
 app.config["MAIL_PORT"] = 587
 app.config["MAIL_SERVER"] = "smtp.gmail.com"
 app.config["MAIL_USE_TLS"] = True
-app.config["MAIL_USERNAME"] = "ShoppingComplex7@gmail.com"
+app.config["MAIL_USERNAME"] = "shoppingcomplex7@gmail.com"
 mail = Mail(app)
 
 # setting secret key
