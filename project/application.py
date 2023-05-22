@@ -56,9 +56,7 @@ def index():
     if "register_id" not in session:
         return redirect("/login")
 
-    products = db.execute("SELECT * FROM products")
-    search = db.execute("SELECT * FROM search")
-    return render_template("homepage.html", shows=search, products=products)
+    return render_template("homepage.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
