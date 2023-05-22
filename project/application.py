@@ -15,6 +15,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from flask_mail import Mail, Message
 import os
 import json
+import psycogp2
 
 app = Flask(__name__)
 
@@ -33,7 +34,12 @@ app.secret_key = os.environ.get("secret_key")
 app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True
 
-db = SQL("sqlite:///project.db")
+uri = "postgres://lildavid:1YXmz8u420SwCjPgvIHV92SwvV56jp64@dpg-chla96m4dadfmskf0hn0-a.oregon-postgres.render.com/kongastore"
+
+if uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://")
+    
+db = SQL(uri)
 
 # setting up session
 app.config["SESSION_TYPE"] = "filesystem"
