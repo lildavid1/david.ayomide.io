@@ -46,7 +46,6 @@ app.config["SESSION_TYPE"] = "filesystem"
 app.config["SESSION_PERMANENT"] = True
 app.config["SESSION_FILE_DIR"] = mkdtemp()
 app.config["PERMANENT_SESSION_LIFETIME"] = True 
-session.permanent = True
 Session(app)
 
 # ensure templates auto reload
@@ -56,6 +55,7 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 @app.route("/")
 def index():
     if "register_id" not in session:
+        session.permanent = True
         return redirect("/login")
 
     return render_template("homepage.html")
