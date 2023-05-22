@@ -46,6 +46,7 @@ app.config["SESSION_TYPE"] = "filesystem"
 app.config["SESSION_PERMANENT"] = True
 app.config["SESSION_FILE_DIR"] = mkdtemp()
 app.config["PERMANENT_SESSION_LIFETIME"] = True 
+session.permanent = True
 Session(app)
 
 # ensure templates auto reload
