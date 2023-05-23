@@ -202,7 +202,7 @@ def remove():
 def search():
     q = request.args.get("q")
     if q:
-        shows = db.execute("SELECT * FROM products WHERE title LIKE (?)", "%" + q + "%")
+        shows = db.execute("SELECT * FROM products WHERE title LIKE (?)", '%' + q + '%')
     else:
         shows = []
     return jsonify(shows)
