@@ -38,14 +38,14 @@ uri = "postgres://lildavid:1YXmz8u420SwCjPgvIHV92SwvV56jp64@dpg-chla96m4dadfmskf
 urih = "postgres://damrbhobrspguc:f65c8bc0e09a27e1ca40f8c83f446cd33816e6eaa025e9602edf62eb2317a3e4@ec2-34-236-103-63.compute-1.amazonaws.com:5432/d5coc7jq63n6fk"
 
 if urih.startswith("postgres://"):
-    urih = urih.replace("postgres://", "postgresql://")
+    urih = urih.replace("postgres://", "postgresql://") 
     
-dbh = SQL(urih)
 
 if uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://")
     
 db = SQL(uri)
+dbh = SQL(urih)
 
 # setting up session
 app.config["SESSION_TYPE"] = "filesystem"
