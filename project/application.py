@@ -39,13 +39,13 @@ urih = "postgres://damrbhobrspguc:f65c8bc0e09a27e1ca40f8c83f446cd33816e6eaa025e9
 
 if urih.startswith("postgres://"):
     urih = urih.replace("postgres://", "postgresql://")
+    
+ dbh = SQL(urih)
 
 if uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://")
     
 db = SQL(uri)
-
-dbh = SQL(urih)
 
 # setting up session
 app.config["SESSION_TYPE"] = "filesystem"
@@ -83,13 +83,13 @@ def register():
 
         try:
             # insert into database
-            db.execute(
-                "INSERT INTO registrants (email, full_name, username, hash) VALUES(?,?,?,?)",
-                email,
-                full_name,
-                username,
-                hash,
-            )
+#             db.execute(
+#                 "INSERT INTO registrants (email, full_name, username, hash) VALUES(?,?,?,?)",
+#                 email,
+#                 full_name,
+#                 username,
+#                 hash,
+#             )
              
              dbh.execute(
                 "INSERT INTO registrants (email, full_name, username, hash) VALUES(?,?,?,?)",
