@@ -82,7 +82,7 @@ def register():
         hash = generate_password_hash(password)
 
         try:
-            insert into database
+#             insert into database
             db.execute(
                 "INSERT INTO registrants (email, full_name, username, hash) VALUES(?,?,?,?)",
                 email,
