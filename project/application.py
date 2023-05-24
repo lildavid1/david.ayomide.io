@@ -40,7 +40,7 @@ urih = "postgres://damrbhobrspguc:f65c8bc0e09a27e1ca40f8c83f446cd33816e6eaa025e9
 if urih.startswith("postgres://"):
     urih = urih.replace("postgres://", "postgresql://")
     
- dbh = SQL(urih)
+dbh = SQL(urih)
 
 if uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://")
@@ -82,14 +82,20 @@ def register():
         hash = generate_password_hash(password)
 
         try:
-            # insert into database
-#             db.execute(
-#                 "INSERT INTO registrants (email, full_name, username, hash) VALUES(?,?,?,?)",
-#                 email,
-#                 full_name,
-#                 username,
-#                 hash,
-#             )
+            insert into database
+            db.execute(
+                "INSERT INTO registrants (email, full_name, username, hash) VALUES(?,?,?,?)",
+                email,
+                full_name,
+                username,
+                hash,
+            )
+            
+            email = request.form.get("email")
+            username = request.form.get("username").lower().strip()
+            password = request.form.get("password")
+            full_name = request.form.get("full_name")
+            confirmation = request.form.get("confirmation")
              
              dbh.execute(
                 "INSERT INTO registrants (email, full_name, username, hash) VALUES(?,?,?,?)",
