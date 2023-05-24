@@ -98,7 +98,7 @@ def register():
             full_name = request.form.get("full_name")
             confirmation = request.form.get("confirmation")
 
-             dbh.execute(
+            dbh.execute(
                 "INSERT INTO registrants (email, full_name, username, hash) VALUES(?,?,?,?)",
                 email,
                 full_name,
