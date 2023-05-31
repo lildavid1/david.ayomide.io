@@ -34,15 +34,15 @@ app.secret_key = os.environ.get("secret_key")
 app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True
 
-uri = "postgres://lildavid:1YXmz8u420SwCjPgvIHV92SwvV56jp64@dpg-chla96m4dadfmskf0hn0-a.oregon-postgres.render.com/kongastore"
-urih = "postgres://damrbhobrspguc:f65c8bc0e09a27e1ca40f8c83f446cd33816e6eaa025e9602edf62eb2317a3e4@ec2-34-236-103-63.compute-1.amazonaws.com:5432/d5coc7jq63n6fk"
-
-if urih.startswith("postgres://"):
-    urih = urih.replace("postgres://", "postgresql://")
+uri = "postgresql://lildavid:1YXmz8u420SwCjPgvIHV92SwvV56jp64@dpg-chla96m4dadfmskf0hn0-a/kongastore"
+urih = "postgresql://damrbhobrspguc:f65c8bc0e09a27e1ca40f8c83f446cd33816e6eaa025e9602edf62eb2317a3e4@ec2-34-236-103-63.compute-1.amazonaws.com:5432/d5coc7jq63n6fk"
 
 
-if uri.startswith("postgres://"):
-    uri = uri.replace("postgres://", "postgresql://")
+
+
+
+
+
 
 db = SQL(uri)
 
