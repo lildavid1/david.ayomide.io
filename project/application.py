@@ -1,13 +1,5 @@
-from flask import (
-    Flask,
-    request,
-    render_template,
-    flash,
-    redirect,
-    url_for,
-    jsonify,
-    session,
-)
+from flask import Flask, request, render_template, flash, redirect, url_for, jsonify, session
+from datetime import timedelta
 from cs50 import SQL
 from flask_session import Session
 from tempfile import mkdtemp
@@ -29,28 +21,19 @@ app.config["MAIL_USERNAME"] = "ShoppingComplex7@gmail.com"
 mail = Mail(app)
 
 # setting secret key
-app.secret_key = os.environ.get("secret_key")
+app.secret_key = os.getenv("SECRET_KEY")
 
 app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True
 
 uri = "postgresql://lildavid:1YXmz8u420SwCjPgvIHV92SwvV56jp64@dpg-chla96m4dadfmskf0hn0-a.oregon-postgres.render.com/kongastore"
-urih = "postgresql://damrbhobrspguc:f65c8bc0e09a27e1ca40f8c83f446cd33816e6eaa025e9602edf62eb2317a3e4@ec2-34-236-103-63.compute-1.amazonaws.com:5432/d5coc7jq63n6fk"
-
-
-
-
-
-
-
 
 db = SQL(uri)
-
-dbh = SQL(urih)
 
 # setting up session
 app.config["SESSION_TYPE"] = "filesystem"
 app.config["SESSION_FILE_DIR"] = mkdtemp()
+app.permanent_session_lifetime = timedelta(days=5)
 Session(app)
 
 # ensure templates auto reload
@@ -72,39 +55,20 @@ def register():
         return render_template("register.html")
 
     if request.method == "POST":
+        
         # select data from onsubmit
         email = request.form.get("email")
         username = request.form.get("username").lower().strip()
         password = request.form.get("password")
         full_name = request.form.get("full_name")
-        confirmation = request.form.get("confirmation")
 
         # generate password hash
         hash = generate_password_hash(password)
 
         try:
 #             insert into database
-            db.execute(
-                "INSERT INTO registrants (email, full_name, username, hash) VALUES(?,?,?,?)",
-                email,
-                full_name,
-                username,
-                hash,
-            )
-
-            email = request.form.get("email")
-            username = request.form.get("username").lower().strip()
-            password = request.form.get("password")
-            full_name = request.form.get("full_name")
-            confirmation = request.form.get("confirmation")
-
-            dbh.execute(
-                "INSERT INTO registrants (email, full_name, username, hash) VALUES(?,?,?,?)",
-                email,
-                full_name,
-                username,
-                hash,
-            )
+            db.execute("INSERT INTO registrants (email, full_name, username, hash) VALUES(?,?,?,?)", email, full_name, username, hash)
+    
             email = request.form.get("email")
             username = request.form.get("username").lower().strip()
             password = request.form.get("password")
@@ -143,7 +107,7 @@ def login():
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], password):
             flash("Invalid credentials", category="error")
             return redirect("/login")
-
+        session.permanent = True
         session["register_id"] = rows[0]["id"]
 
         return redirect("/")
