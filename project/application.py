@@ -26,7 +26,7 @@ app.secret_key = "ndvjnsdkj"
 app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True
 
-uri = "postgresql://lildavid:1YXmz8u420SwCjPgvIHV92SwvV56jp64@dpg-chla96m4dadfmskf0hn0-a.oregon-postgres.render.com/kongastore"
+uri = "postgresql://kongastore:K3dDA2yUUT12NEE7LGjzGaksTpXlReUu@dpg-cht1irgrddlc2mfk7ho0-a.oregon-postgres.render.com/kongastore_vm60"
 
 db = SQL(uri)
 
