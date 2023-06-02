@@ -12,23 +12,21 @@ import psycopg2
 app = Flask(__name__)
 
 # configure flask mail
-app.config["MAIL_DEFAULT_SENDER"] = "ShoppingComplex7@gmail.com"
-app.config["MAIL_PASSWORD"] = "xyon trko utkq hihi"
+app.config["MAIL_DEFAULT_SENDER"] = os.getenv("MAIL_DEFAULT_SENDER")
+app.config["MAIL_PASSWORD"] = os.getenv("MAIL_PASSWORD")
 app.config["MAIL_PORT"] = 587
 app.config["MAIL_SERVER"] = "smtp.gmail.com"
 app.config["MAIL_USE_TLS"] = True
-app.config["MAIL_USERNAME"] = "ShoppingComplex7@gmail.com"
+app.config["MAIL_USERNAME"] = os.getenv("MAIL_USERNAME")
 mail = Mail(app)
 
 # setting secret key
-app.secret_key = "ndvjnsdkj"
+app.secret_key = os.getenv("SECRET_KEY")
 
 app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True
 
-uri = "postgresql://kongastore:K3dDA2yUUT12NEE7LGjzGaksTpXlReUu@dpg-cht1irgrddlc2mfk7ho0-a.oregon-postgres.render.com/kongastore_vm60"
-
-db = SQL(uri)
+db = SQL(os.getenv("URI"))
 
 # setting up session
 app.config["SESSION_TYPE"] = "filesystem"
