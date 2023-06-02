@@ -21,7 +21,7 @@ app.config["MAIL_USERNAME"] = "ShoppingComplex7@gmail.com"
 mail = Mail(app)
 
 # setting secret key
-app.secret_key = os.getenv("SECRET_KEY")
+app.secret_key = "ndvjnsdkj"
 
 app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True
@@ -33,6 +33,7 @@ db = SQL(uri)
 # setting up session
 app.config["SESSION_TYPE"] = "filesystem"
 app.config["SESSION_FILE_DIR"] = mkdtemp()
+app.config["SESSION_PERMANENT"] = True
 app.permanent_session_lifetime = timedelta(days=5)
 Session(app)
 
