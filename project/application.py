@@ -106,8 +106,9 @@ def login():
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], password):
             flash("Invalid credentials", category="error")
             return redirect("/login")
-        session.permanent = True
+
         session["register_id"] = rows[0]["id"]
+        session.permanent = True
 
         return redirect("/")
 
