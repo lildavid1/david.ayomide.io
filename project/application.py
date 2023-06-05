@@ -28,6 +28,8 @@ app.jinja_env.lstrip_blocks = True
 
 db = SQL(os.getenv("URI"))
 
+dbm = SQL(os.getenv("MYSQL"))
+
 # setting up session
 app.config["SESSION_TYPE"] = "filesystem"
 app.config["SESSION_FILE_DIR"] = mkdtemp()
