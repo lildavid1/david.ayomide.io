@@ -8,3 +8,5 @@ pip install tempfile
 python -m pip install --upgrade pip
 pip install psycopg2-binary
 pip install psycopg2
+pip install mysqlclient
+pip install PyMySQL
