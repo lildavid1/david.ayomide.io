@@ -5,6 +5,7 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_mail import Mail, Message
+from redis import Redis
 import os
 import json
 import psycopg2
@@ -20,9 +21,6 @@ app.config["MAIL_USE_TLS"] = True
 app.config["MAIL_USERNAME"] = os.getenv("MAIL_USERNAME")
 mail = Mail(app)
 
-# setting secret key
-app.secret_key = os.getenv("SECRET_KEY")
-
 app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True
 
@@ -31,9 +29,8 @@ db = SQL(os.getenv("URI"))
 dbm = SQL(os.getenv("MYSQL"))
 
 # setting up session
-app.config["SESSION_TYPE"] = "filesystem"
-app.config["SESSION_FILE_DIR"] = mkdtemp()
-app.config["SESSION_PERMANENT"] = True
+app.config['SESSION_TYPE'] = 'redis'
+app.config['SESSION_REDIS'] = Redis(host='100.20.92.101', port=3000)
 app.permanent_session_lifetime = timedelta(days=5)
 Session(app)
 
