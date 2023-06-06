@@ -30,7 +30,7 @@ dbm = SQL(os.getenv("MYSQL"))
 
 # setting up session
 app.config['SESSION_TYPE'] = 'redis'
-app.config['SESSION_REDIS'] = Redis(host='100.20.92.101', port=3000)
+app.config['SESSION_REDIS'] = os.getenv("REDIS")
 app.permanent_session_lifetime = timedelta(days=5)
 Session(app)
 
