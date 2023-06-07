@@ -42,6 +42,7 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 def index():
     if "register_id" not in session:
         return redirect("/login")
+        
     shows = db.execute("SELECT * FROM search LIMIT 20")
     products = db.execute("SELECT * FROM products")
     return render_template("homepage.html", products=products, shows=shows)
@@ -84,7 +85,7 @@ def register():
             flash("Credential has already been taken", category="error")
             return redirect("/register")
 
-    flash("Account created successfully", category="error")
+    flash("Account created ", category="error")
     return redirect("/login")
 
 
