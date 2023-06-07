@@ -42,7 +42,7 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 def index():
     if "register_id" not in session:
         return redirect("/login")
-        
+
     shows = db.execute("SELECT * FROM search LIMIT 20")
     products = db.execute("SELECT * FROM products")
     return render_template("homepage.html", products=products, shows=shows)
@@ -54,7 +54,7 @@ def register():
         return render_template("register.html")
 
     if request.method == "POST":
-        
+
         # select data from onsubmit
         email = request.form.get("email")
         username = request.form.get("username").lower().strip()
@@ -67,7 +67,7 @@ def register():
         try:
 #             insert into database
             db.execute("INSERT INTO registrants (email, full_name, username, hash) VALUES(?,?,?,?)", email, full_name, username, hash)
-    
+
             email = request.form.get("email")
             username = request.form.get("username").lower().strip()
             password = request.form.get("password")
@@ -85,7 +85,7 @@ def register():
             flash("Credential has already been taken", category="error")
             return redirect("/register")
 
-    flash("Account created ", category="error")
+    flash("Account created fine", category="error")
     return redirect("/login")
 
 
@@ -106,7 +106,7 @@ def login():
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], password):
             flash("Invalid credentials", category="error")
             return redirect("/login")
-        
+
         session.permanent = True
         session["register_id"] = rows[0]["id"]
 
