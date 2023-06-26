@@ -26,11 +26,12 @@ app.jinja_env.lstrip_blocks = True
 
 db = SQL(os.getenv("URI"))
 
+dbl = SQL("sqlite:///project.db")
+
 dbm = SQL(os.getenv("MYSQL"))
 
 # setting up session
-app.config['SESSION_TYPE'] = 'redis'
-app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
+app.config['SESSION_TYPE'] = 'filesystem'
 app.permanent_session_lifetime = timedelta(days=5)
 Session(app)
 
@@ -43,8 +44,8 @@ def index():
     if "register_id" not in session:
         return redirect("/login")
 
-    shows = db.execute("SELECT * FROM search LIMIT 20")
-    products = db.execute("SELECT * FROM products")
+    shows = dbl.execute("SELECT * FROM search LIMIT 20")
+    products = dbl.execute("SELECT * FROM products")
     return render_template("homepage.html", products=products, shows=shows)
 
 
@@ -186,7 +187,7 @@ def remove():
 def search():
     q = request.args.get("q")
     if q:
-        shows = db.execute("SELECT * FROM products WHERE title LIKE (?)", '%' + q + '%')
+        shows = dbl.execute("SELECT * FROM products WHERE title LIKE (?)", '%' + q + '%')
     else:
         shows = []
     return jsonify(shows)
