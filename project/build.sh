@@ -10,4 +10,5 @@ pip install psycopg2-binary
 pip install psycopg2
 pip install mysqlclient
 pip install PyMySQL
+pip install secret
 pip install redis
