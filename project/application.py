@@ -11,7 +11,6 @@ import json
 import secret
 import psycopg2
 
-!hightlight
 app = Flask(__name__)
 
 # configure flask mails
