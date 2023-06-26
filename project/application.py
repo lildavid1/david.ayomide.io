@@ -163,7 +163,7 @@ def product():
             session["cart"].append(id)
         return redirect("/product")
 
-    items = db.execute("SELECT * FROM products WHERE id IN (?)", session["cart"])
+    items = dbl.execute("SELECT * FROM products WHERE id IN (?)", session["cart"])
     return render_template("cart.html", items=items)
 
 
@@ -180,7 +180,7 @@ def remove():
 
             return redirect("/product")
 
-    items = db.execute("SELECT * FROM search WHERE id IN (?)", session["cart"])
+    items = dbl.execute("SELECT * FROM search WHERE id IN (?)", session["cart"])
     return render_template("cart.html", items=items)
 
 
@@ -196,5 +196,5 @@ def search():
 
 @app.route("/view/<a>")
 def product_view(a):
-    products = db.execute("SELECT * FROM products WHERE title = (?)", a)
+    products = dbl.execute("SELECT * FROM products WHERE title = (?)", a)
     return render_template("product_view.html", products=products)
