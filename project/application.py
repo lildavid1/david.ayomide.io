@@ -31,7 +31,8 @@ dbl = SQL("sqlite:///project.db")
 dbm = SQL(os.getenv("MYSQL"))
 
 # setting up session
-app.config['SESSION_TYPE'] = 'filesystem'
+app.config['SESSION_TYPE'] = 'redis'
+app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
 app.permanent_session_lifetime = timedelta(days=5)
 Session(app)
 
