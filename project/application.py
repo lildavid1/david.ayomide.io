@@ -8,11 +8,12 @@ from flask_mail import Mail, Message
 from redis import Redis
 import os
 import json
+import secret
 import psycopg2
 
 app = Flask(__name__)
 
-# configure flask mail
+# configure flask mails
 app.config["MAIL_DEFAULT_SENDER"] = os.getenv("MAIL_DEFAULT_SENDER")
 app.config["MAIL_PASSWORD"] = os.getenv("MAIL_PASSWORD")
 app.config["MAIL_PORT"] = 587
