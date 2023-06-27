@@ -12,6 +12,7 @@
     justify-content: center;
     background-image: url('background.jpg');
     background-size: cover;
+    font-family: 'Inter', sans-serif;
 }
 .login{
     width: 500px;
