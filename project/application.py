@@ -13,6 +13,8 @@ import psycopg2
 
 app = Flask(__name__)
 
+app.secret_key = os.getenv("SECRET_KEY")
+
 # configure flask mails
 app.config["MAIL_DEFAULT_SENDER"] = os.getenv("MAIL_DEFAULT_SENDER")
 app.config["MAIL_PASSWORD"] = os.getenv("MAIL_PASSWORD")
@@ -34,6 +36,7 @@ dbm = SQL(os.getenv("MYSQL"))
 # setting up session
 app.config['SESSION_TYPE'] = 'redis'
 app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
+# app.config['SESSION_TYPE'] = 'filesystem'
 app.permanent_session_lifetime = timedelta(days=5)
 Session(app)
 
