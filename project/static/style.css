@@ -136,7 +136,7 @@ h1{
 .card img{
     max-width: 50%;
     border-radius: 5px;
-    
+
 }
 .card .text{
     text-align: left;
@@ -165,7 +165,7 @@ h1{
     box-shadow: 0px 5px rgba(92,95,105, .2);
 }
 .buy_button{
-    background-color: #f9ca24; 
+    background-color: #f9ca24;
     border: none;
     padding: 1em;
     border-radius: 5px;
@@ -177,7 +177,7 @@ h1{
 }
 .productc{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 10px;
 }
