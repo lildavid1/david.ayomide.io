@@ -13,8 +13,7 @@ import psycopg2
 
 app = Flask(__name__)
 
-app.secret_key = os.getenv(secrets.token_hex(16))
-print(secrets.token_hex(16))
+app.secret_key = secrets.token_hex(16)
 
 
 # configure flask mails
