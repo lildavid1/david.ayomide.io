@@ -8,12 +8,14 @@ from flask_mail import Mail, Message
 from redis import Redis
 import os
 import json
-import secret
+import secrets
 import psycopg2
 
 app = Flask(__name__)
 
-app.secret_key = os.getenv("SECRET_KEY")
+app.secret_key = os.getenv(secrets.token_hex(16))
+print(secrets.token_hex(16))
+
 
 # configure flask mails
 app.config["MAIL_DEFAULT_SENDER"] = os.getenv("MAIL_DEFAULT_SENDER")
@@ -34,9 +36,9 @@ dbl = SQL("sqlite:///project.db")
 dbm = SQL(os.getenv("MYSQL"))
 
 # setting up session
-# app.config['SESSION_TYPE'] = 'redis'
-# app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
-app.config['SESSION_TYPE'] = 'filesystem'
+app.config['SESSION_TYPE'] = 'redis'
+app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
+# app.config['SESSION_TYPE'] = 'filesystem'
 app.permanent_session_lifetime = timedelta(days=5)
 Session(app)
 
