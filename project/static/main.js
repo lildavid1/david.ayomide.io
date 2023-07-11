@@ -12,7 +12,7 @@ document.querySelector(".form").onsubmit = function() {
     };
 };
 
-
+console.log(products);
 
 let input = document.querySelector('.kol');
 input.addEventListener('keyup', function() {
