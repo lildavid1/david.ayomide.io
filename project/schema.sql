@@ -1,10 +1,10 @@
-CREATE TABLE `registrant` (
+CREATE TABLE `registrants` (
         `id` INT AUTO_INCREMENT,
         PRIMARY KEY(`id`),
         `email` VARCHAR(64) NOT NULL UNIQUE,
         `full_name` VARCHAR(64) UNIQUE,
         `username` VARCHAR(64) NOT NULL UNIQUE,
-        `hash` VARCHAR(64) NOT NULL,
+        `hash` VARCHAR(200) NOT NULL,
          `wallet` NUMERIC NOT NULL DEFAULT 1000.00,
          `timestamp` DATETIME DEFAULT CURRENT_TIMESTAMP
 );
