@@ -12,11 +12,10 @@ document.querySelector(".form").onsubmit = function() {
     };
 };
 
-console.log(products);
 
 let input = document.querySelector('.kol');
 input.addEventListener('keyup', function() {
-    $.get('/search?q=' + input.value, function(shows) {
+    $.get(`/search?q=${input.value}`, function(shows) {
         let html = '';
         for (let id in shows) {
             let title = shows[id].title.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
@@ -25,3 +24,5 @@ input.addEventListener('keyup', function() {
         document.querySelector('.ul').innerHTML = html;
     });
 });
+
+

@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, flash, redirect, url_for, jsonify, session
+from flask import Flask, request, render_template, flash, redirect, url_for, jsonify, session, send_from_directory
 from datetime import timedelta
 from cs50 import SQL
 from flask_session import Session
@@ -29,14 +29,16 @@ app.jinja_env.lstrip_blocks = True
 
 db = SQL(os.getenv("URI"))
 
+dbp = SQL(os.getenv("PSCALE"))
+
 dbl = SQL("sqlite:///project.db")
 
 dbm = SQL(os.getenv("MYSQL"))
 
 # setting up session
-# app.config['SESSION_TYPE'] = 'redis'
-# app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
-app.config['SESSION_TYPE'] = 'filesystem'
+app.config['SESSION_TYPE'] = 'redis'
+app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
+# app.config['SESSION_TYPE'] = 'filesystem'
 app.permanent_session_lifetime = timedelta(days=5)
 Session(app)
 

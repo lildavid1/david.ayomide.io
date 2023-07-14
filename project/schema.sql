@@ -1,21 +1,21 @@
-CREATE TABLE IF NOT EXISTS 'registrants'
-(
-        'id' INTEGER PRIMARY KEY,
-        'email' TEXT NOT NULL UNIQUE ,
-        'full_name' TEXT UNIQUE s,
-        'username' TEXT NOT NULL UNIQUE,
-        'hash' TEXT NOT NULL,
-         'wallet' NUMERIC NOT NULL DEFAULT 1000.00,
-         'timestamp' DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE `registrant` (
+        `id` INT AUTO_INCREMENT,
+        PRIMARY KEY(`id`),
+        `email` VARCHAR(64) NOT NULL UNIQUE,
+        `full_name` VARCHAR(64) UNIQUE,
+        `username` VARCHAR(64) NOT NULL UNIQUE,
+        `hash` VARCHAR(64) NOT NULL,
+         `wallet` NUMERIC NOT NULL DEFAULT 1000.00,
+         `timestamp` DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS 'products'
+CREATE TABLE IF NOT EXISTS `products`
  (
-    'id' INTEGER PRIMARY KEY,
-    'title' TEXT NOT NULL UNIQUE,
-    'img' TEXT NOT NULL ,
-    'desc' TEXT NOT NULL UNIQUE,
-    'price' NUMERIC NOT NULL
+    `id` INTEGER PRIMARY KEY,
+    `title` VARCHAR(64) NOT NULL UNIQUE,
+    `img` VARCHAR(64) NOT NULL ,
+    `desc` VARCHAR(64) NOT NULL UNIQUE,
+    `price` NUMERIC NOT NULL
 );
 
 CREATE TRIGGER "search_list"
@@ -29,5 +29,5 @@ END;
 
 CREATE TABLE "search" (
     "id"  INTEGER,
-    "title" TEXT
+    "title" VARCHAR(64)
 );
