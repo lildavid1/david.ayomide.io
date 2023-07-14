@@ -36,9 +36,9 @@ dbl = SQL("sqlite:///project.db")
 dbm = SQL(os.getenv("MYSQL"))
 
 # setting up session
-app.config['SESSION_TYPE'] = 'redis'
-app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
-# app.config['SESSION_TYPE'] = 'filesystem'
+# app.config['SESSION_TYPE'] = 'redis'
+# app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
+app.config['SESSION_TYPE'] = 'filesystem'
 app.permanent_session_lifetime = timedelta(days=5)
 Session(app)
 
@@ -74,7 +74,7 @@ def register():
 
         try:
 #             insert into database
-            db.execute("INSERT INTO registrants (email, full_name, username, hash) VALUES(?,?,?,?)", email, full_name, username, hash)
+            dbp.execute("INSERT INTO registrants (email, full_name, username, hash) VALUES(?,?,?,?)", email, full_name, username, hash)
 
             email = request.form.get("email")
             username = request.form.get("username").lower().strip()
@@ -82,7 +82,7 @@ def register():
 
             message = Message("Email Confirmation", recipients=[email])
             message.body = render_template("email.html")
-            row = db.execute("SELECT * FROM registrants WHERE email = (?)", email)
+            row = dbp.execute("SELECT * FROM registrants WHERE email = (?)", email)
             message.html = render_template("email.html", username=username, row=row)
             mail.send(message)
 
@@ -109,7 +109,7 @@ def login():
         username = request.form.get("username").lower().strip()
         password = request.form.get("password")
 
-        rows = db.execute("SELECT * FROM registrants WHERE username = (?)", username)
+        rows = dbp.execute("SELECT * FROM registrants WHERE username = (?)", username)
 
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], password):
             flash("Invalid credentials", category="error")
