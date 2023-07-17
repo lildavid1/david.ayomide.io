@@ -27,18 +27,17 @@ mail = Mail(app)
 app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True
 
+
+# setup databases
 db = SQL(os.getenv("URI"))
-
 dbp = SQL(os.getenv("PSCALE"))
-
 dbl = SQL("sqlite:///project.db")
-
 dbm = SQL(os.getenv("MYSQL"))
 
 # setting up session
-app.config['SESSION_TYPE'] = 'redis'
-app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
-# app.config['SESSION_TYPE'] = 'filesystem'
+# app.config['SESSION_TYPE'] = 'redis'
+# app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
+app.config['SESSION_TYPE'] = 'filesystem'
 app.permanent_session_lifetime = timedelta(days=5)
 Session(app)
 
@@ -197,6 +196,7 @@ def search():
         shows = dbl.execute("SELECT * FROM products WHERE title LIKE (?)", '%' + q + '%')
     else:
         shows = []
+
     return jsonify(shows)
 
 
