@@ -73,7 +73,7 @@ def register():
 
         try:
 #             insert into database
-            dbp.execute("INSERT INTO registrants (email, full_name, username, hash) VALUES(?,?,?,?)", email, full_name, username, hash)
+            db.execute("INSERT INTO registrants (email, full_name, username, hash) VALUES(?,?,?,?)", email, full_name, username, hash)
 
             email = request.form.get("email")
             username = request.form.get("username").lower().strip()
@@ -81,7 +81,7 @@ def register():
 
             message = Message("Email Confirmation", recipients=[email])
             message.body = render_template("email.html")
-            row = dbp.execute("SELECT * FROM registrants WHERE email = (?)", email)
+            row = db.execute("SELECT * FROM registrants WHERE email = (?)", email)
             message.html = render_template("email.html", username=username, row=row)
             mail.send(message)
 
@@ -108,7 +108,7 @@ def login():
         username = request.form.get("username").lower().strip()
         password = request.form.get("password")
 
-        rows = dbp.execute("SELECT * FROM registrants WHERE username = (?)", username)
+        rows = db.execute("SELECT * FROM registrants WHERE username = (?)", username)
 
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], password):
             flash("Invalid credentials", category="error")
