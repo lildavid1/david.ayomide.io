@@ -69,7 +69,7 @@ def register():
         username = request.form.get("username").lower().strip()
         password = request.form.get("password")
         full_name = request.form.get("full_name")
-        token = ''.join(random.choices(string.ascii_letters + string.digits, k=40))
+        token = ''.join(random.choices(string.ascii_letters + string.digits, k=32))
 
         # generate password hash
         hash = generate_password_hash(password)
