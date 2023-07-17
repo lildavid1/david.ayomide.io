@@ -5,9 +5,11 @@ from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_mail import Mail, Message
 from redis import Redis
+import string
 import os
 import secrets
 import psycopg2
+import random
 
 app = Flask(__name__)
 
@@ -56,6 +58,7 @@ def index():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+
     if request.method == "GET":
         return render_template("register.html")
 
@@ -66,17 +69,17 @@ def register():
         username = request.form.get("username").lower().strip()
         password = request.form.get("password")
         full_name = request.form.get("full_name")
+        token = ''.join(random.choices(string.ascii_letters + string.digits, k=40))
 
         # generate password hash
         hash = generate_password_hash(password)
 
         try:
-#             insert into database
-            db.execute("INSERT INTO registrants (email, full_name, username, hash) VALUES(?,?,?,?)", email, full_name, username, hash)
+            # insert into database
+            db.execute("INSERT INTO registrants (email, full_name, username, hash, token) VALUES(?,?,?,?,?)", email, full_name, username, hash, token)
 
             email = request.form.get("email")
             username = request.form.get("username").lower().strip()
-            password = request.form.get("password")
 
             message = Message("Email Confirmation", recipients=[email])
             message.body = render_template("email.html")
@@ -97,6 +100,7 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+
     session.clear()
 
     if request.method == "GET":
@@ -203,3 +207,19 @@ def search():
 def product_view(a):
     products = dbl.execute("SELECT * FROM products WHERE title = (?)", a)
     return render_template("product_view.html", products=products)
+
+
+@app.route("/auth/<userid>/<token>")
+def auth(userid, token):
+
+    row = db.execute("SELECT * FROM registrants WHERE id = (?)", userid)
+    for i in row:
+        print(i)
+
+        if token == i['token']:
+            return redirect("/login")
+
+        else:
+            return redirect("/register")
+
+        return redirect("/register")

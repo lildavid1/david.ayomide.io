@@ -21,16 +21,16 @@
     </style>
 </head>
 <body>
-    
+
     <h3 class="greet">Hi, {{ username }} </h3>
-    <h3>{{ password }}</h3>
 
     {%- for ro in row -%}
         {{ro.timestamp }}
-    {%- endfor -%}
+
     <p class="gret">Trust you are doing well</p>
-    
+
     <p>You have been given N1,000 as a welcome bonus</p>
 
-    <a href="#" class="form_botton">Email Confirmation</a>
+    <a href="https://kongadata-9vzk.onrender.com/auth/{{ro.id}}/{{ro.token}}" class="form_botton">Email Confirmation</a>
+    {%- endfor -%}
 </html>
