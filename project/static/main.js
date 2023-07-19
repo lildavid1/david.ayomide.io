@@ -21,31 +21,8 @@ input.addEventListener('keyup', ()=> {
         let html = '';
         for (let id in shows) {
             let title = shows[id].title.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
-            html += `<li><a href="/view/${title}">` + title + '</a></li>';
+            html += `<li class="li"><a class="anchor" href="/view/${title}">` + title + '</a></li>';
         }
         document.querySelector('.ul').innerHTML = html;
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

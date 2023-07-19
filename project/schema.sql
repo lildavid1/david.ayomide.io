@@ -1,33 +1,33 @@
-CREATE TABLE `registrants` (
-        `id` INT AUTO_INCREMENT,
-        PRIMARY KEY(`id`),
-        `email` VARCHAR(64) NOT NULL UNIQUE,
-        `full_name` VARCHAR(64) UNIQUE,
-        `username` VARCHAR(64) NOT NULL UNIQUE,
-        `hash` VARCHAR(200) NOT NULL,
-         `wallet` NUMERIC NOT NULL DEFAULT 1000.00,
-         `timestamp` DATETIME DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE "registrants"(
+        "id" SERIAL PRIMARY KEY,
+        "email" TEXT NOT NULL UNIQUE,
+        "full_name" TEXT UNIQUE NOT NULL,
+        "username" TEXT NOT NULL UNIQUE,
+        "hash" TEXT NOT NULL,
+         "wallet" NUMERIC NOT NULL DEFAULT 1000.00,
+         "timestamp" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+         "token" TEXT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS `products`
+CREATE TABLE IF NOT EXISTS "products"
  (
-    `id` INTEGER PRIMARY KEY,
-    `title` VARCHAR(64) NOT NULL UNIQUE,
-    `img` VARCHAR(64) NOT NULL ,
-    `desc` VARCHAR(64) NOT NULL UNIQUE,
-    `price` NUMERIC NOT NULL
+    "id" SERIALEGER PRIMARY KEY,
+    "title" TEXT NOT NULL UNIQUE,
+    "img" TEXT NOT NULL ,
+    "desc" TEXT NOT NULL UNIQUE,
+    "price" NUMERIC NOT NULL
 );
 
 CREATE TRIGGER "search_list"
 AFTER INSERT ON "products"
-FOR EACH ROW
+FOR EACH ROw
 BEGIN
-    INSERT INTO "search"
+    INSERT SERIALO "search"
     ("id", "title")
     VALUES(NEW.id, NEW.title);
 END;
 
 CREATE TABLE "search" (
-    "id"  INTEGER,
-    "title" VARCHAR(64)
+    "id"  SERIALEGER,
+    "title" TEXT
 );
