@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, flash, redirect, url_for, jsonify, session, send_from_directory
+from flask import Flask, request, render_template, flash, redirect, url_for, jsonify, session, send_from_directory, send_file
 from datetime import timedelta
 from cs50 import SQL
 from flask_session import Session
@@ -10,8 +10,11 @@ import os
 import secrets
 import psycopg2
 import random
+from flask_qrcode import QRcode
 
 app = Flask(__name__)
+qrcode = QRcode(app)
+
 
 app.secret_key = secrets.token_hex(16)
 
@@ -31,14 +34,15 @@ app.jinja_env.lstrip_blocks = True
 
 # setup databases
 db = SQL(os.getenv("URI"))
+dbS = SQL(os.getenv("SUPA"))
 dbp = SQL(os.getenv("PSCALE"))
 dbl = SQL("sqlite:///project.db")
 dbm = SQL(os.getenv("MYSQL"))
 
 # setting up session
-# app.config['SESSION_TYPE'] = 'redis'
-# app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
-app.config['SESSION_TYPE'] = 'filesystem'
+app.config['SESSION_TYPE'] = 'redis'
+app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
+# app.config['SESSION_TYPE'] = 'filesystem'
 app.permanent_session_lifetime = timedelta(days=5)
 Session(app)
 
@@ -223,3 +227,5 @@ def auth(userid, token):
             return redirect("/register")
 
         return redirect("/register")
+
+

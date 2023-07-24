@@ -13,3 +13,4 @@ pip install secrets
 pip install redis
 export FLASK_ENV="development"
 export FLASK_DEBUG=1
+pip install Flask-QRcode
