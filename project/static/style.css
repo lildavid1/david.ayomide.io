@@ -205,3 +205,9 @@ h1{
 ul{
     list-style: none;
 }
+@media (max-width: 980px){
+    .productc{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+};
