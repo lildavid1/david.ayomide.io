@@ -40,9 +40,9 @@ dbl = SQL("sqlite:///project.db")
 dbm = SQL(os.getenv("MYSQL"))
 
 # setting up session
-app.config['SESSION_TYPE'] = 'redis'
-app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
-# app.config['SESSION_TYPE'] = 'filesystem'
+# app.config['SESSION_TYPE'] = 'redis'
+# app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
+app.config['SESSION_TYPE'] = 'filesystem'
 app.permanent_session_lifetime = timedelta(days=5)
 Session(app)
 
@@ -80,14 +80,14 @@ def register():
 
         try:
             # insert into database
-            db.execute("INSERT INTO registrants (email, full_name, username, hash, token) VALUES(?,?,?,?,?)", email, full_name, username, hash, token)
+            dbp.execute("INSERT INTO registrants (email, full_name, username, hash, token) VALUES(?,?,?,?,?)", email, full_name, username, hash, token)
 
             email = request.form.get("email")
             username = request.form.get("username").lower().strip()
 
             message = Message("Email Confirmation", recipients=[email])
             message.body = render_template("email.html")
-            row = db.execute("SELECT * FROM registrants WHERE email = (?)", email)
+            row = dbp.execute("SELECT * FROM registrants WHERE email = (?)", email)
             message.html = render_template("email.html", username=username, row=row)
             mail.send(message)
 

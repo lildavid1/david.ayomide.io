@@ -1,6 +1,6 @@
 let formSubmition = document.querySelector(".form");
 
-formSubmition.addEventListener('onsubmit', ()=> {
+formSubmition.addEventListener('submit', ()=> {
     if (!document.querySelector("#username").value) {
         document.querySelector(".alert").innerHTML = "required field";
         return false;
@@ -26,3 +26,4 @@ input.addEventListener('keyup', ()=> {
         document.querySelector('.ul').innerHTML = html;
     });
 });
+
