@@ -80,7 +80,7 @@ def register():
 
         try:
             # insert into database
-            dbp.execute("INSERT INTO registrants (email, full_name, username, hash, token) VALUES(?,?,?,?,?)", email, full_name, username, hash, token)
+            dbp.execute(os.getenv("REGISTER"), email, full_name, username, hash, token)
 
             email = request.form.get("email")
             username = request.form.get("username").lower().strip()

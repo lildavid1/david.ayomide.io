@@ -3,11 +3,14 @@
 {%- block title -%} Product {% endblock %}
 
 {%- block body -%}
+
     {% for product in products %}
+    
         <div class="continer">
             <div class="header">
                 <div class="img"><img src="{{ product.img }}" alt="{{ product.img }}"></div>
             </div>
         </div>
    {% endfor %}
+   
 {%- endblock -%}
