@@ -19,7 +19,7 @@ formSubmition.addEventListener('submit', (e)=> {
 let input = document.querySelector('.kol');
 input.addEventListener('keyup', (e)=> {
     console.log(e);
-    $.getJSON(`/search?q=${input.value}`, (shows)=>  {
+    $.get(`/search?q=${input.value}`, (shows)=>  {
         let html = '';
         for (let id in shows) {
             let title = shows[id].title.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
