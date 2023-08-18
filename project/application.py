@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 import os
 from flask import Flask, request, render_template, flash, redirect, url_for, jsonify, session, send_from_directory, send_file
-=======
-from flask import *
->>>>>>> be64e25ac4308a054b6bf051cfa2acf89bf83564
 from datetime import timedelta
 from cs50 import SQL
 from flask_session import Session
