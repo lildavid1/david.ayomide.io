@@ -2,8 +2,8 @@ from flask import *
 from datetime import timedelta
 from cs50 import SQL
 from flask_session import Session
-from werkzeug.security import check_password_hash, generate_password_hash
-from flask_mail import Mail, Message
+from werkzeug.security import *
+from flask_mail import *
 from redis import Redis
 import string
 import os
