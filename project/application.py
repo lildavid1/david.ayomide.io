@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, render_template, flash, redirect, url_for, jsonify, session, send_from_directory, send_file
 from datetime import timedelta
 from cs50 import SQL
@@ -6,14 +7,11 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from flask_mail import Mail, Message
 from redis import Redis
 import string
-import os
 import secrets
 import psycopg2
 import random
-from flask_qrcode import QRcode
 
 app = Flask(__name__)
-qrcode = QRcode(app)
 
 
 app.secret_key = secrets.token_hex(16)

@@ -1,6 +1,7 @@
 let formSubmition = document.querySelector(".form");
 
-formSubmition.addEventListener('submit', ()=> {
+formSubmition.addEventListener('submit', (e)=> {
+    console.log(e);
     if (!document.querySelector("#username").value) {
         document.querySelector(".alert").innerHTML = "required field";
         return false;
@@ -16,12 +17,13 @@ formSubmition.addEventListener('submit', ()=> {
 
 
 let input = document.querySelector('.kol');
-input.addEventListener('keyup', ()=> {
-    $.get(`/search?q=${input.value}`, (shows)=>  {
+input.addEventListener('keyup', (e)=> {
+    console.log(e);
+    $.getJSON(`/search?q=${input.value}`, (shows)=>  {
         let html = '';
         for (let id in shows) {
             let title = shows[id].title.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
-            html += `<li class="li"><a class="anchor" href="/view/${title}">  ${title} </a></li>`;
+            html += `<li class="li"><a class="anchor" href="/view/${title}">${title}</a></li>`;
         }
         document.querySelector('.ul').innerHTML = html;
     });

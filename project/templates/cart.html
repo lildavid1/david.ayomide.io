@@ -13,6 +13,7 @@
             <div class="image"><img src="{{ item.img }}" alt="uo no"></div>
             <div class="text">{{ item.title }} </div>
             <div class="product_price">₦ {{ item.price }}</div>
+            <button class="btn inc">0</button>
             <form action="/remove" method="post">
               <input type="hidden" name="id" value="{{ item.id }}">
               <button class="buy_button" type="submit">remove from cart</button>

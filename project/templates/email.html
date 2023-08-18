@@ -2,18 +2,10 @@
 <html lang="en">
 <head>
     <style>
-        .form_botton{
-            display: block;
+        .form_button{
+            height: 20px;
+            border: 1px solid orange;
             justify-content: center;
-            align-items: center;
-            padding: .75rem 2rem;
-            margin-left: 100px;
-            outline: none;
-            background-color: #1a73e8;
-            color: #fff;
-            font-size: 1rem;
-            border-radius: .5rem;
-            transition: .3s;
         }
         .greet{
             color: skyblue;
@@ -30,6 +22,10 @@
 
     <p class="gret">Trust you are doing well</p>
     <p>You have been given N1,000 as a welcome bonus</p>
+    <input name="q" class="email" type="text">
+    <ul></ul>
     <a href="https://kongadata-9vzk.onrender.com/auth/{{ro.id}}/{{ro.token}}" class="form_botton">Email Confirmation</a>
     {%- endfor -%}
+
+</body>
 </html>
