@@ -215,7 +215,7 @@ def product_view(a):
 @app.route("/auth/<userid>/<token>")
 def auth(userid, token):
 
-    row = db.execute("SELECT * FROM registrants WHERE id = (?)", userid)
+    row = dbp.execute("SELECT * FROM registrants WHERE id = (?)", userid)
     for i in row:
         print(i)
 
