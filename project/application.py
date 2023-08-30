@@ -113,7 +113,7 @@ def login():
         username = request.form.get("username").lower().strip()
         password = request.form.get("password")
 
-        rows = db.execute("SELECT * FROM registrants WHERE username = (?)", username)
+        rows = dbp.execute("SELECT * FROM registrants WHERE username = (?)", username)
 
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], password):
             flash("Invalid credentials", category="error")
