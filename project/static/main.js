@@ -28,6 +28,6 @@ input.addEventListener('keyup', (e)=> {
             html += `<li class="li"><a class="anchor" href="/view/${title}">${title}</a></li>`;
         }
         document.querySelector('.ul').innerHTML = html;
-    });
+    })
 });
 
