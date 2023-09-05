@@ -227,4 +227,3 @@ def auth(userid, token):
 
         return redirect("/register")
 
-
