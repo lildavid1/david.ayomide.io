@@ -1,3 +1,5 @@
+'use strict'
+
 let formSubmition = document.querySelector(".form");
 
 formSubmition.addEventListener('submit', (e)=> {
