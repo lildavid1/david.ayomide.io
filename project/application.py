@@ -1,7 +1,7 @@
 import os
 from flask import *
 from datetime import timedelta
-from cs50 import SQL
+from cs50 import SQL, get_string
 from flask_session import Session
 from werkzeug.security import *
 from flask_mail import *
