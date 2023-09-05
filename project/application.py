@@ -35,7 +35,7 @@ db = SQL(os.getenv("URI"))
 dbS = SQL(os.getenv("SUPA"))
 dbp = SQL(os.getenv("PSCALE"))
 dbl = SQL("sqlite:///project.db")
-dbm = SQL(os.getenv("MYSQL"))
+# dbm = SQL(os.getenv("MYSQL"))
 
 # setting up session
 # app.config['SESSION_TYPE'] = 'redis'
