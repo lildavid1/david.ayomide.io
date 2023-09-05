@@ -78,14 +78,14 @@ def register():
 
         try:
             # insert into database
-            dbp.execute(os.getenv("REGISTER"), email, full_name, username, hash, token)
+            dbm.execute(os.getenv("REGISTER"), email, full_name, username, hash, token)
 
             email = request.form.get("email")
             username = request.form.get("username").lower().strip()
 
             message = Message("Email Confirmation", recipients=[email])
             message.body = render_template("email.html")
-            row = dbp.execute("SELECT * FROM registrants WHERE email = (?)", email)
+            row = dbm.execute("SELECT * FROM registrants WHERE email = (?)", email)
             message.html = render_template("email.html", username=username, row=row)
             mail.send(message)
 
