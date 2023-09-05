@@ -19,7 +19,7 @@ formSubmition.addEventListener('submit', (e)=> {
 
 
 let input = document.querySelector('.kol');
-input.addEventListener('keyup', (e)=> {
+input.addEventListener('keyup', function(e) {
     console.log(e);
     console.log(this);
     $.get(`/search?q=${input.value}`, (shows)=>  {
