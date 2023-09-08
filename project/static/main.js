@@ -20,7 +20,8 @@ formSubmition.addEventListener('submit', (e)=> {
 
 let input = document.querySelector('.kol');
 input.addEventListener('keyup', function(e) {
-    $.get(`/search?q=${this.value}`, (shows)=>  {
+    $.get(`/search?q=${this.value}`, function(shows){
+        console.log(this);
         let html = '';
         for (let id in shows) {
             let title = shows[id].title.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
