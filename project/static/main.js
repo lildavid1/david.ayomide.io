@@ -2,7 +2,7 @@
 
 let formSubmition = document.querySelector(".form");
 
-formSubmition.addEventListener('submit', (e)=> {
+formSubmition.addEventListener('submit', (e) => {
     console.log(e);
     if (!document.querySelector("#username").value) {
         document.querySelector(".alert").innerText = "required field";
@@ -20,7 +20,7 @@ formSubmition.addEventListener('submit', (e)=> {
 
 let input = document.querySelector('.kol');
 input.addEventListener('keyup', function(e) {
-    $.get(`/search?q=${this.value}`, function(shows){
+    $.get(`/search?q=${this.value}`, function(shows) {
         console.log(this);
         let html = '';
         for (let id in shows) {
