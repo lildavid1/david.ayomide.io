@@ -1,7 +1,7 @@
 import os
 from flask import *
 from datetime import timedelta
-from cs50 import SQL
+from cs50 import *
 from flask_session import Session
 from werkzeug.security import *
 from flask_mail import *
@@ -33,9 +33,9 @@ app.jinja_env.lstrip_blocks = True
 # setup databases
 db = SQL(os.getenv("URI"))
 dbS = SQL(os.getenv("SUPA"))
+dbm = SQL(os.getenv("MYSQL"))
 dbp = SQL(os.getenv("PSCALE"))
 dbl = SQL("sqlite:///project.db")
-dbm = SQL(os.getenv("MYSQL"))
 
 # setting up session
 # app.config['SESSION_TYPE'] = 'redis'
@@ -78,14 +78,14 @@ def register():
 
         try:
             # insert into database
-            dbp.execute(os.getenv("REGISTER"), email, full_name, username, hash, token)
+            dbm.execute(os.getenv("REGISTER"), email, full_name, username, hash, token)
 
             email = request.form.get("email")
             username = request.form.get("username").lower().strip()
 
             message = Message("Email Confirmation", recipients=[email])
             message.body = render_template("email.html")
-            row = dbp.execute("SELECT * FROM registrants WHERE email = (?)", email)
+            row = dbm.execute("SELECT * FROM registrants WHERE email = (?)", email)
             message.html = render_template("email.html", username=username, row=row)
             mail.send(message)
 
@@ -113,7 +113,7 @@ def login():
         username = request.form.get("username").lower().strip()
         password = request.form.get("password")
 
-        rows = db.execute("SELECT * FROM registrants WHERE username = (?)", username)
+        rows = dbm.execute("SELECT * FROM registrants WHERE username = (?)", username)
 
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], password):
             flash("Invalid credentials", category="error")
@@ -199,6 +199,7 @@ def search():
     q = request.args.get("q")
     if q:
         shows = dbl.execute("SELECT * FROM products WHERE title LIKE (?)", '%' + q + '%')
+        print(jsonify(shows))
     else:
         shows = []
 
@@ -214,7 +215,7 @@ def product_view(a):
 @app.route("/auth/<userid>/<token>")
 def auth(userid, token):
 
-    row = db.execute("SELECT * FROM registrants WHERE id = (?)", userid)
+    row = dbp.execute("SELECT * FROM registrants WHERE id = (?)", userid)
     for i in row:
         print(i)
 
@@ -225,5 +226,4 @@ def auth(userid, token):
             return redirect("/register")
 
         return redirect("/register")
-
 
