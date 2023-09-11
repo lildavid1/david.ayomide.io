@@ -1,15 +1,15 @@
-'use strict'
+'use strict';
 
 let formSubmition = document.querySelector(".form");
 
-formSubmition.addEventListener('submit', (e)=> {
-    console.log(e);
-    if (!document.querySelector("#username").value) {
-        document.querySelector(".alert").innerText = "required field";
+formSubmition.addEventListener('submit', function(e){
+    console.log(this);
+    if (!this.querySelector("#username").value) {
+        this.querySelector(".alert").innerText = "required field";
         return false;
     }
-    else if (!document.querySelector("#password").value) {
-        document.querySelector(".aler").innerText = "required field";
+    else if (!this.querySelector("#password").value) {
+        this.querySelector(".aler").innerText = "required field";
         return false;
     }
     else {
