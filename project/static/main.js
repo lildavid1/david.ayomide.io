@@ -29,3 +29,8 @@ input.addEventListener('keyup', (e)=> {
     });
 });
 
+let inc = document.querySelector('.increment');
+inc.addEventListener('onclick', (e, inc)=>{
+    console.log(inc.innerText);
+});
+
