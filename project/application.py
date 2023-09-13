@@ -57,6 +57,9 @@ def index():
     products = dbl.execute("SELECT * FROM products")
     return render_template("homepage.html", products=products, shows=shows)
 
+@app.route('/static/<path:filename>')
+def serve_static(filename):
+    return app.send_static_file(filename)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():

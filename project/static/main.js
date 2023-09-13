@@ -29,11 +29,21 @@ input.addEventListener('keyup', function(e) {
             html += `<li class="li"><a class="anchor" href="/view/${title}">${title}</a></li>`;
         }
         document.querySelector('.ul').innerHTML = html;
-    })
+    });
 });
 
-let inc = document.querySelector('.increment');
-inc.addEventListener('onclick', (e, inc)=>{
-    console.log(inc.innerText);
-});
+const btn = document.querySelectorAll('.btn');
+console.log(btn);
 
+btn.forEach(function (btns) {
+  btns.addEventListener('click', () => {
+    // Parse the text content as an integer
+    let count = parseInt(btns.innerText);
+
+    // Increment the count
+    count++;
+
+    // Set the updated count as text content
+    btns.innerText = count;
+  });
+});
