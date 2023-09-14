@@ -38,9 +38,9 @@ dbp = SQL(os.getenv("PSCALE"))
 dbl = SQL("sqlite:///project.db")
 
 # setting up session
-# app.config['SESSION_TYPE'] = 'redis'
-# app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
-app.config['SESSION_TYPE'] = 'filesystem'
+app.config['SESSION_TYPE'] = 'redis'
+app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
+# app.config['SESSION_TYPE'] = 'filesystem'
 app.permanent_session_lifetime = timedelta(days=5)
 Session(app)
 
@@ -226,3 +226,5 @@ def index():
     shows = dbl.execute("SELECT * FROM search LIMIT 20")
     products = dbl.execute("SELECT * FROM products")
     return render_template("homepage.html", products=products, shows=shows)
+    
+    
