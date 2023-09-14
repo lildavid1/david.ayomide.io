@@ -21,6 +21,4 @@ btns?.forEach(function(btn){
   });
 });
 
-console.log(this);
-
 
