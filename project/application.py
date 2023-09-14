@@ -38,28 +38,15 @@ dbp = SQL(os.getenv("PSCALE"))
 dbl = SQL("sqlite:///project.db")
 
 # setting up session
-app.config['SESSION_TYPE'] = 'redis'
-app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
-# app.config['SESSION_TYPE'] = 'filesystem'
+# app.config['SESSION_TYPE'] = 'redis'
+# app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
+app.config['SESSION_TYPE'] = 'filesystem'
 app.permanent_session_lifetime = timedelta(days=5)
 Session(app)
 
 # ensure templates auto reload
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
-
-@app.route("/")
-def index():
-    if "register_id" not in session:
-        return redirect("/login")
-
-    shows = dbl.execute("SELECT * FROM search LIMIT 20")
-    products = dbl.execute("SELECT * FROM products")
-    return render_template("homepage.html", products=products, shows=shows)
-
-@app.route('/static/<path:filename>')
-def serve_static(filename):
-    return app.send_static_file(filename)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -230,3 +217,12 @@ def auth(userid, token):
 
         return redirect("/register")
 
+
+@app.route("/")
+def index():
+    if "register_id" not in session:
+        return redirect("/login")
+
+    shows = dbl.execute("SELECT * FROM search LIMIT 20")
+    products = dbl.execute("SELECT * FROM products")
+    return render_template("homepage.html", products=products, shows=shows)
