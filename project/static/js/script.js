@@ -1,5 +1,7 @@
-let input = document.querySelector('.kol');
-input.addEventListener('keyup', function(e) {
+'use strict';
+
+const input = document.querySelector('.kol');
+input?.addEventListener('keyup', function(e) {
     console.log(e);
     console.log(this);
     $.get(`/search?q=${this.value}`, (shows)=>  {
@@ -12,6 +14,13 @@ input.addEventListener('keyup', function(e) {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function(){
-   console.log(this);
+const btns = document.querySelectorAll('.btn');
+btns?.forEach(function(btn){
+  btn.addEventListener('click', function(){
+      this.innerText++;
+  });
 });
+
+console.log(this);
+
+
