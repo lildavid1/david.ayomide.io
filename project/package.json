@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "@planetscale/database": "^1.11.0",
-    "mysql2": "^3.6.1",
-    "pg-promise": "^11.5.4",
-    "react": "^18.2.0"
-  }
-}
