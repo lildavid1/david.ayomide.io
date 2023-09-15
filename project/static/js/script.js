@@ -17,8 +17,9 @@ input?.addEventListener('keyup', function(e) {
     });
 });
 
-btns?.forEach(function(btn){
-  btn.addEventListener('click', ()=>{
+btns?.forEach(btn =>{
+  btn.addEventListener('click', function(){
+    console.log(this);
       this.innerText++;
   });
 });
