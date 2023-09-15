@@ -24,4 +24,6 @@ btns?.forEach(function(btn){
   });
 });
 
+const guh = "{{ name }}"
+console.log(guh);
 
