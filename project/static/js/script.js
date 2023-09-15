@@ -24,6 +24,10 @@ btns?.forEach(function(btn){
   });
 });
 
-const guh = ('{{ name }}');
-console.log(guh);
+const config = {
+    host: 'aws.connect.psdb.cloud',
+    username: '<PS_USERNAME>',
+    password: '<PS_PASSWORD>'
+  }
+  const conn = await connect(config)
 
