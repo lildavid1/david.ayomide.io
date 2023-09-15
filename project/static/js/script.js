@@ -2,9 +2,11 @@
 
 //  variable selection
 const btns = document.querySelectorAll('.btn');
-const input = document.querySelector('.kol');
+const inputSearch = document.querySelector('.kol');
+const 
 
-input?.addEventListener('keyup', function(e) {
+
+inputSearch?.addEventListener('keyup', function(e) {
     console.log(e);
     console.log(this);
     $.get(`/search?q=${this.value}`, (shows)=> {
@@ -22,7 +24,6 @@ btns?.forEach(btn =>{
       this.innerText++;
   });
 });
-
 
 
 
