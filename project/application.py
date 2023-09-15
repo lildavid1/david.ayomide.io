@@ -14,9 +14,7 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 
-
 app.secret_key = secrets.token_hex(16)
-
 
 # configure flask mails
 app.config["MAIL_DEFAULT_SENDER"] = os.getenv("MAIL_DEFAULT_SENDER")
