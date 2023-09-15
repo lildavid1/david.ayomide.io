@@ -10,7 +10,6 @@ import string
 import secrets
 import psycopg2
 import random
-from flask_cors import CORS
 
 app = Flask(__name__)
 
