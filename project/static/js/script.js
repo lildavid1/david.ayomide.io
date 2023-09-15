@@ -4,6 +4,7 @@
 const btns = document.querySelectorAll('.btn');
 const input = document.querySelector('.kol');
 
+
 input?.addEventListener('keyup', function(e) {
     console.log(e);
     console.log(this);
