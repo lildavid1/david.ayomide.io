@@ -4,12 +4,6 @@
 const btns = document.querySelectorAll('.btn');
 const input = document.querySelector('.kol');
 
-const functions = {
-    item_incr: function(){
-
-    };
-}
-
 input?.addEventListener('keyup', function(e) {
     console.log(e);
     console.log(this);
