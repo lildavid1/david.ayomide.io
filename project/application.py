@@ -224,4 +224,3 @@ def index():
     products = dbl.execute("SELECT * FROM products")
     return render_template("homepage.html", products=products, shows=shows)
 
-gvgvvvb b b
