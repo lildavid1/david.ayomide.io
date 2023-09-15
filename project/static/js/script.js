@@ -3,7 +3,7 @@
 //  variable selection
 const btns = document.querySelectorAll('.btn');
 const inputSearch = document.querySelector('.kol');
-const 
+const
 
 
 inputSearch?.addEventListener('keyup', function(e) {
