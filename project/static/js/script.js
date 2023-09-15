@@ -24,6 +24,6 @@ btns?.forEach(function(btn){
   });
 });
 
-const guh = "{{ name }}"
+const guh = ('{{ name }}');
 console.log(guh);
 
