@@ -6,9 +6,6 @@ const inputSearch = document.querySelector('.kol');
 const passWord = document.querySelector('.passWord');
 
 
-passWord?.addEventListener
-
-
 inputSearch?.addEventListener('keyup', function(e) {
     console.log(e);
     console.log(this);
