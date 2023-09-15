@@ -20,5 +20,4 @@ input?.addEventListener('keyup', function(e) {
 btns?.forEach(function(btn){
   btn.addEventListener('click', ()=>{
       this.innerText++;
-  });
-});
+  });});
