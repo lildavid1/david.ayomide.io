@@ -181,6 +181,7 @@ def remove():
     return render_template("cart.html", items=items)
 
 
+
 @app.route("/search")
 def search():
     q = request.args.get("q")
