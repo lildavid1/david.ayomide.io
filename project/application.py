@@ -13,7 +13,6 @@ import random
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
 
 
 app.secret_key = secrets.token_hex(16)
