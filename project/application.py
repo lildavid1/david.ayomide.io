@@ -47,7 +47,6 @@ Session(app)
 # ensure templates auto reload
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
-
 @app.route("/register", methods=["GET", "POST"])
 def register():
 
