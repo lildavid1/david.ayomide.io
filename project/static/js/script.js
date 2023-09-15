@@ -13,7 +13,7 @@ const functions = {
 input?.addEventListener('keyup', function(e) {
     console.log(e);
     console.log(this);
-    $.get(`/search?q=${this.value}`, (shows)=>  {
+    $.get(`/search?q=${this.value}`, (shows)=> {
         let html = '';
         for (let id in shows) {
             let title = shows[id].title.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
@@ -29,3 +29,4 @@ btns?.forEach(function(btn){
   });
 });
 
+console.log('hello, world');
