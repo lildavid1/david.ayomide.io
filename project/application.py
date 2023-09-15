@@ -226,5 +226,4 @@ def index():
     shows = dbl.execute("SELECT * FROM search LIMIT 20")
     products = dbl.execute("SELECT * FROM products")
     return render_template("homepage.html", products=products, shows=shows)
-    
-    
+
