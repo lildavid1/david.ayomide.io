@@ -6,7 +6,7 @@ const input = document.querySelector('.kol');
 
 const functions = {
     item_incr: function(){
-        
+
     };
 }
 
@@ -28,5 +28,3 @@ btns?.forEach(function(btn){
       this.innerText++;
   });
 });
-
-console.log('hello, world');
