@@ -19,7 +19,6 @@ input?.addEventListener('keyup', function(e) {
 
 btns?.forEach(btn =>{
   btn.addEventListener('click', function(){
-    console.log(this);
       this.innerText++;
   });
 });
