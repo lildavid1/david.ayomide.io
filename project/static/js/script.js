@@ -1,6 +1,10 @@
 'use strict';
 
+//  variable selection
+const btns = document.querySelectorAll('.btn');
 const input = document.querySelector('.kol');
+
+
 input?.addEventListener('keyup', function(e) {
     console.log(e);
     console.log(this);
@@ -14,7 +18,6 @@ input?.addEventListener('keyup', function(e) {
     });
 });
 
-const btns = document.querySelectorAll('.btn');
 btns?.forEach(function(btn){
   btn.addEventListener('click', function(){
       this.innerText++;
