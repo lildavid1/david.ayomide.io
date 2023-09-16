@@ -25,5 +25,3 @@ btns?.forEach(btn =>{
   });
 });
 
-
-
