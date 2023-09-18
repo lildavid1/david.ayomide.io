@@ -25,4 +25,8 @@ btns?.forEach(btn => {
   });
 });
 
-formLogin?.onsubmit = console.log(this);
+formLogin?.addEventListener('submit', function(e){
+    if(!this.value){
+        
+    }
+});
