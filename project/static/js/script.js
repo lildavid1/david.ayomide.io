@@ -8,9 +8,6 @@ const formLogin = document.querySelector('.form');
 
 
 input?.addEventListener('keyup', function(e){
-//  variable selection
-
-inputSearch?.addEventListener('keyup', function(e) {
     console.log(e);
     console.log(this);
     $.get(`/search?q=${this.value}`, (shows)=>  {
@@ -31,7 +28,8 @@ btns?.forEach(btn => {
 
 formLogin?.addEventListener('submit', function(e){
     if(!this.value){
-        this.querySelector('.alert') = 'required information';
+        this.querySelector('.alert').innerText = 'required information';
+        e.preventDefault();
     }
 });
 
