@@ -25,7 +25,8 @@ btns?.forEach(btn => {
   });
 });
 
-formLogin?.addEventListener('submit', function(e){
+formLogin?.addEventListener('submit', function(event){
+    event.preventDefault();
     if(!this.value){
         this.querySelector('.alert').innerText = 'required information';
     }
