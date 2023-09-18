@@ -30,4 +30,3 @@ formLogin?.addEventListener('submit', function(event){
     if(!this.value){
         this.querySelector('.alert').innerText = 'required information';
     }
-});
