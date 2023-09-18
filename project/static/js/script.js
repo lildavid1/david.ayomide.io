@@ -1,9 +1,12 @@
 'use strict';
 
+
+//selectors here
 const input = document.querySelector('.kol');
-input?.addEventListener('keyup', function(e) {
-    console.log(e);
-    console.log(this);
+const btns = document.querySelectorAll('.btn');
+
+
+input?.addEventListener('keyup', function(e){
     $.get(`/search?q=${this.value}`, (shows)=>  {
         let html = '';
         for (let id in shows) {
@@ -14,10 +17,9 @@ input?.addEventListener('keyup', function(e) {
     });
 });
 
-const btns = document.querySelectorAll('.btn');
 btns?.forEach(function(btn){
   btn.addEventListener('click', function(){
-      this.innerText++;
+      this.innerHTML++;
   });
 });
 
