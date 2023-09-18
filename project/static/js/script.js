@@ -8,8 +8,6 @@ const formLogin = document.querySelector('.form');
 
 
 input?.addEventListener('keyup', function(e){
-    console.log(e);
-    console.log(this);
     $.get(`/search?q=${this.value}`, (shows)=>  {
         let html = '';
         for (let id in shows) {
@@ -30,6 +28,7 @@ formLogin?.addEventListener('submit', function(event){
     console.log(event);
     if(!this.value || !passWord.value){
         this.querySelector('.alert').innerText = 'required information';
+        this.querySelector('.aler').innerText = 'required information';
         return false;
     }
 });
