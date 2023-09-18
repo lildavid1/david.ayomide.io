@@ -131,11 +131,7 @@ def update():
         check_email = dbm.execute("SELECT * FROM registrants WHERE email = (?)", email)
         print(check_email)
         try:
-            message = Message("David From Shoppingcomplex.com", recipients=[email])
-            message.body = render_template("email.html")
-            message.html = render_template("email.html")
-            mail.send(message)
-
+            pass
         except:
             pass
         finally:

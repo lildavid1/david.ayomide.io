@@ -5,6 +5,8 @@ const input = document.querySelector('.kol');
 const btns = document.querySelectorAll('.btn');
 const passWord = document.querySelector('.passWord');
 const formLogin = document.querySelector('.form');
+const request = new XMLHttpRequest();
+
 
 input?.addEventListener('keyup', function(e){
     $.get(`/search?q=${this.value}`, (shows)=>  {
@@ -32,3 +34,9 @@ formLogin?.addEventListener('submit', function(event){
     }
 });
 
+console.log(request);
+request.open('GET', 'https://restcountries.eu/rest/v2/name/portugal');
+request.send();
+request.addEventListener('load', function(){
+    console.log(this.responseText);
+});
