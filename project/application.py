@@ -13,9 +13,7 @@ import random
 
 app = Flask(__name__)
 
-
 app.secret_key = secrets.token_hex(16)
-
 
 # configure flask mails
 app.config["MAIL_DEFAULT_SENDER"] = os.getenv("MAIL_DEFAULT_SENDER")
@@ -46,7 +44,6 @@ Session(app)
 
 # ensure templates auto reload
 app.config["TEMPLATES_AUTO_RELOAD"] = True
-
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -164,7 +161,7 @@ def product():
         return redirect("/product")
 
     items = dbl.execute("SELECT * FROM products WHERE id IN (?)", session["cart"])
-    return render_template("cart.html", items=items)
+    return render_template("cart.html", items=items, name=('000ayo'))
 
 
 @app.route("/remove", methods=["GET", "POST"])
