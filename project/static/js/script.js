@@ -1,19 +1,14 @@
 'use strict';
 
-<<<<<<< HEAD
-
 //selectors here
 const input = document.querySelector('.kol');
 const btns = document.querySelectorAll('.btn');
+const passWord = document.querySelector('.passWord');
+const formLogin = document.querySelector('.form');
 
 
 input?.addEventListener('keyup', function(e){
-=======
 //  variable selection
-const btns = document.querySelectorAll('.btn');
-const inputSearch = document.querySelector('.kol');
-const passWord = document.querySelector('.passWord');
-const formLogin = document.querySelector('.form');
 
 inputSearch?.addEventListener('keyup', function(e) {
     console.log(e);
