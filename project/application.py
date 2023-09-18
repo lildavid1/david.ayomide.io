@@ -128,8 +128,8 @@ def update():
     if request.method == "POST":
         email = request.form.get("email")
 
-        check_email = db.execute("SELECT email FROM registrants ")
-        print(check_email)
+        check_email = dbm.execute("SELECT email FROM registrants ")
+        
         try:
             pass
         except:

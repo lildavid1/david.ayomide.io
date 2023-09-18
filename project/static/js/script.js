@@ -6,7 +6,6 @@ const btns = document.querySelectorAll('.btn');
 const passWord = document.querySelector('.passWord');
 const formLogin = document.querySelector('.form');
 
-
 input?.addEventListener('keyup', function(e){
     $.get(`/search?q=${this.value}`, (shows)=>  {
         let html = '';
