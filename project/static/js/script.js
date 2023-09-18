@@ -29,7 +29,6 @@ btns?.forEach(btn => {
 formLogin?.addEventListener('submit', function(e){
     if(!this.value){
         this.querySelector('.alert').innerText = 'required information';
-        e.preventDefault();
     }
 });
 
