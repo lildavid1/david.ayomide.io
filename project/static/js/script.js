@@ -34,7 +34,7 @@ formLogin?.addEventListener('submit', function(event){
 });
 
 console.log(request);
-request.open('GET', 'https://restcountries.eu/rest/v2/name/portugal');
+request.open('GET', 'https://restcountries.com/rest/v2/name/portugal');
 request.send();
 request.addEventListener('load', function(){
     console.log(this.responseText);
