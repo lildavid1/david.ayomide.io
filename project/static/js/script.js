@@ -20,15 +20,17 @@ input?.addEventListener('keyup', function(e){
     });
 });
 
-btns?.forEach(btn => {
+btns?.forEach((btn)=>{
   btn.addEventListener('click', function(){
       this.innerHTML++;
   });
 });
 
-formLogin?.addEventListener('submit', function(e){
-    if(!this.value){
+formLogin?.addEventListener('submit', function(event){
+    console.log(event);
+    if(!this.value || !passWord.value){
         this.querySelector('.alert').innerText = 'required information';
+        return false;
     }
 });
 
