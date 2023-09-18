@@ -4,6 +4,7 @@
 const btns = document.querySelectorAll('.btn');
 const inputSearch = document.querySelector('.kol');
 const passWord = document.querySelector('.passWord');
+const formLogin = document.querySelector('.form');
 
 inputSearch?.addEventListener('keyup', function(e) {
     console.log(e);
@@ -24,3 +25,4 @@ btns?.forEach(btn => {
   });
 });
 
+formLogin?.onsubmit = console.log(this);
