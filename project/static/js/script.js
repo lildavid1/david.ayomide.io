@@ -7,7 +7,6 @@ const passWord = document.querySelector('.passWord');
 const formLogin = document.querySelector('.form');
 const request = new XMLHttpRequest();
 
-
 input?.addEventListener('keyup', function(e){
     $.get(`/search?q=${this.value}`, (shows)=>  {
         let html = '';
