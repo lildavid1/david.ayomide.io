@@ -1,5 +1,14 @@
 'use strict';
 
+<<<<<<< HEAD
+
+//selectors here
+const input = document.querySelector('.kol');
+const btns = document.querySelectorAll('.btn');
+
+
+input?.addEventListener('keyup', function(e){
+=======
 //  variable selection
 const btns = document.querySelectorAll('.btn');
 const inputSearch = document.querySelector('.kol');
@@ -9,7 +18,7 @@ const formLogin = document.querySelector('.form');
 inputSearch?.addEventListener('keyup', function(e) {
     console.log(e);
     console.log(this);
-    $.get(`/search?q=${this.value}`, (shows)=> {
+    $.get(`/search?q=${this.value}`, (shows)=>  {
         let html = '';
         for (let id in shows) {
             let title = shows[id].title.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
@@ -21,7 +30,7 @@ inputSearch?.addEventListener('keyup', function(e) {
 
 btns?.forEach(btn => {
   btn.addEventListener('click', function(){
-      this.innerText++;
+      this.innerHTML++;
   });
 });
 
