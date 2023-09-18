@@ -4,7 +4,6 @@
 const btns = document.querySelectorAll('.btn');
 const inputSearch = document.querySelector('.kol');
 const passWord = document.querySelector('.passWord');
-console.log(passWord);
 
 inputSearch?.addEventListener('keyup', function(e) {
     console.log(e);
