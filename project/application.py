@@ -142,7 +142,7 @@ def update():
         # message.html = render_template("email.html")
         # mail.send(message)
 
-    return render_template("forget.html")
+    return render_template("mailing.html")
 
 
 @app.route("/product", methods=["GET", "POST"])
