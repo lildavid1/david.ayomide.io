@@ -187,7 +187,6 @@ def search():
     q = request.args.get("q")
     if q:
         shows = dbl.execute("SELECT * FROM products WHERE title LIKE (?)", '%' + q + '%')
-        print(shows)
     else:
         shows = []
 
