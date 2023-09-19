@@ -1,5 +1,9 @@
 :root{
-    
+
+}
+
+html{
+
 }
 
 *{
@@ -12,7 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('background.jpg');
+    background-image: url('/static/background.jpg');
     background-size: cover;
     font-family: "Inter", sans-serif;
 }
