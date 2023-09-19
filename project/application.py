@@ -36,9 +36,9 @@ dbp = SQL(os.getenv("PSCALE"))
 dbl = SQL("sqlite:///project.db")
 
 # setting up session
-# app.config['SESSION_TYPE'] = 'redis'
-# app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
-app.config['SESSION_TYPE'] = 'filesystem'
+app.config['SESSION_TYPE'] = 'redis'
+app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
+# app.config['SESSION_TYPE'] = 'filesystem'
 app.permanent_session_lifetime = timedelta(days=5)
 Session(app)
 
