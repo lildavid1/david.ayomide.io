@@ -1,4 +1,4 @@
-import os, random
+import os, random, string, secrets, psycopg2
 from flask import *
 from datetime import timedelta
 from cs50 import *
@@ -6,10 +6,6 @@ from flask_session import Session
 from werkzeug.security import *
 from flask_mail import *
 from redis import Redis
-import string
-import secrets
-import psycopg2
-# import random
 
 app = Flask(__name__)
 
