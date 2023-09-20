@@ -33,3 +33,4 @@ formLogin?.addEventListener('submit', function(event){
 });
 
 
+console.log(input);
