@@ -5,7 +5,6 @@ const input = document.querySelector('.kol');
 const btns = document.querySelectorAll('.btn');
 const passWord = document.querySelector('.passWord');
 const formLogin = document.querySelector('.form');
-const request = new XMLHttpRequest();
 
 input?.addEventListener('keyup', function(e){
     $.get(`/search?q=${this.value}`, (shows)=>  {
@@ -26,7 +25,7 @@ btns?.forEach((btn)=>{
 
 formLogin?.addEventListener('submit', function(event){
     console.log(event);
-    if(!this.value || !passWord.value){
+    if(!this.value && !passWord.value){
         this.querySelector('.alert').innerText = 'required information';
         this.querySelector('.aler').innerText = 'required information';
         return false;
