@@ -1,4 +1,4 @@
-import os
+import os, random
 from flask import *
 from datetime import timedelta
 from cs50 import *
@@ -9,7 +9,7 @@ from redis import Redis
 import string
 import secrets
 import psycopg2
-import random
+# import random
 
 app = Flask(__name__)
 
@@ -130,7 +130,7 @@ def update():
 
         check_email = dbm.execute("SELECT * FROM registrants WHERE email = (?)", email)
         print(check_email)
-        
+
     return render_template("mailing.html")
 
 
