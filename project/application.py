@@ -61,7 +61,7 @@ def register():
 
         try:
             # insert into database
-            dbm.execute(os.getenv("REGISTER"), email, full_name, username, hash, token)
+            dbp.execute(os.getenv("REGISTER"), email, full_name, username, hash, token)
 
             email = request.form.get("email")
             username = request.form.get("username").lower().strip()
@@ -166,7 +166,6 @@ def remove():
     return render_template("cart.html", items=items)
 
 
-
 @app.route("/search")
 def search():
     q = request.args.get("q")
@@ -176,7 +175,6 @@ def search():
         shows = []
 
     return jsonify(shows)
-
 
 @app.route("/view/<a>")
 def product_view(a):

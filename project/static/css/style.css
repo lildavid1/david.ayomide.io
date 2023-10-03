@@ -2,7 +2,7 @@
     --text-dark: #000;
     --text-light: #fff;
     --text-grey: #adbdcc;
-    
+
 }
 
 html{
@@ -86,7 +86,7 @@ form{
     left: .8rem;
     font-size: .75rem;
     font-weight: 500;
-    z-index: 10;
+    z-index: -2;
 }
 .form_input:focus{
     border: 1.5px solid #1a73e8;
@@ -222,3 +222,18 @@ ul{
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+.create-account{
+    background-color: black;
+
+}
+.create-account-h2{
+    color: white;
+    margin-left: 7px;
+}
+.back-button{
+    border: none;
+    color: white;
+    background-color: black;
+}
+

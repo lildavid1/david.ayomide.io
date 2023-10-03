@@ -6,19 +6,21 @@ const btns = document.querySelectorAll('.btn');
 const passWord = document.querySelector('.passWord');
 const formLogin = document.querySelector('.form');
 
-input?.addEventListener('keyup', function(e){
-    $.get(`/search?q=${this.value}`, (shows)=>  {
-        let html = '';
-        for (let id in shows) {
-            let title = shows[id].title.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
-            html += `<li class="li"><a class="anchor" href="/view/${title}">${title}</a></li>`;
+input?.addEventListener('input', async function(e){
+    let response = await fetch(`/search?q=${this.value}`);
+    console.log(response);
+    let shows = await response.json();
+    let html = '';
+    for (let id in shows) {
+        let title = shows[id].title.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
+        html += `<li class="li"><a class="anchor" href="/view/${title}">${title}</a></li>`;
         }
-        document.querySelector('.ul').innerHTML = html;
-    });
+    document.querySelector('.ul').innerHTML = html;
 });
 
-btns?.forEach((btn)=>{
-  btn.addEventListener('click', function(){
+btns?.forEach((...btn)=>{
+    console.log(btn);
+  btn[0].addEventListener('click', function(){
       this.innerHTML++;
   });
 });

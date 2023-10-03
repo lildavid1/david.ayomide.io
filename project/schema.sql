@@ -20,9 +20,9 @@ CREATE TABLE IF NOT EXISTS `products`
 
 CREATE TRIGGER `search_list`
 AFTER INSERT ON `products`
-FOR EACH ROw
+FOR EACH ROW
 BEGIN
-    INSERT SERIALO `search`
+    INSERT SERIAL `search`
     (`id`, `title`)
     VALUES(NEW.id, NEW.title);
 END;
