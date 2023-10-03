@@ -146,6 +146,7 @@ def product():
     items = dbl.execute("SELECT * FROM products WHERE id IN (?)", session["cart"])
     return render_template("cart.html", items=items, name=('000ayo'))
 
+
 @app.route("/remove", methods=["GET", "POST"])
 def remove():
     if "register_id" not in session:

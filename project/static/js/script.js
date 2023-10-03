@@ -4,6 +4,7 @@
 const input = document.querySelector('.kol');
 const btns = document.querySelectorAll('.btn');
 const passWord = document.querySelector('.passWord');
+const productPrice = document.querySelectorAll('.product_price');
 const formLogin = document.querySelector('.form');
 
 input?.addEventListener('input', async function(e){
@@ -33,3 +34,4 @@ formLogin?.addEventListener('submit', function(event){
     }
 });
 
+console.log(productPrice?.innerHTML);
