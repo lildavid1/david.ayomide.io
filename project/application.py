@@ -20,8 +20,6 @@ app.config["MAIL_USE_TLS"] = True
 app.config["MAIL_USERNAME"] = os.getenv("MAIL_USERNAME")
 mail = Mail(app)
 
-app.jinja_env.trim_blocks = True
-app.jinja_env.lstrip_blocks = True
 
 
 # setup databases
