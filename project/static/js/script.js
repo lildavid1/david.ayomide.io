@@ -34,6 +34,5 @@ formLogin?.addEventListener('submit', function(event){
     }
 });
 
-productPrice?.addEventListener('DOMCententLoaded', function(){
-    console.log(this);
-})
+console.log(productPrice?.__proto__);
+productPrice?.forEach(())
