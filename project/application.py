@@ -168,11 +168,11 @@ def remove():
 def search():
     q = request.args.get("q")
     if q:
-        shows = dbl.execute("SELECT * FROM products WHERE title LIKE (?)", '%' + q + '%')
+        search_list = dbl.execute("SELECT * FROM products WHERE title LIKE (?)", '%' + q + '%')
     else:
-        shows = []
+        search_list = []
 
-    return jsonify(shows)
+    return jsonify(search_list)
 
 @app.route("/view/<a>")
 def product_view(a):
@@ -201,7 +201,7 @@ def index():
     if "register_id" not in session:
         return redirect("/login")
 
-    shows = dbl.execute("SELECT * FROM search LIMIT 20")
+    search_list = dbl.execute("SELECT * FROM search LIMIT 20")
     products = dbl.execute("SELECT * FROM products")
-    return render_template("homepage.html", products=products, shows=shows)
+    return render_template("homepage.html", products=products, search_list=search_list)
 
