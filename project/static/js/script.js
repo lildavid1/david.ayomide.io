@@ -8,10 +8,10 @@ const formLogin = document.querySelector('.form');
 
 input?.addEventListener('input', async function(e){
     let response = await fetch(`/search?q=${this.value}`);
-    let shows = await response.json();
+    let  = await response.json();
     let html = '';
-    for (let id in shows) {
-        let title = shows[id].title.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
+    for (let id in ) {
+        let title = [id].title.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
         html += `<li class="li"><a class="anchor" href="/view/${title}">${title}</a></li>`;
         }
     document.querySelector('.ul').innerHTML = html;
