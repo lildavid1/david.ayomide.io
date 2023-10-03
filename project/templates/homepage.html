@@ -15,7 +15,7 @@
           <div class="image"><img src="{{ product.img }}" alt="uo no"></div>
 
           <div class="text">{{ product.title }} </div>
-          <div class="product_price"><span class="naira"> ₦</span><span class="product_price_value">{{ product.price }}</span></div> {{ product.wallet }}
+          <div class="product_price"><span class="naira"> ₦</span><p class="product_price_value">{{ product.price }}</p></div> {{ product.wallet }}
 
           <form action="/product" method="post" class="form">
               <input type="hidden" name="id" value="{{ product.id }}">
