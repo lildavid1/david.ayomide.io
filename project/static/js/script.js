@@ -34,4 +34,4 @@ formLogin?.addEventListener('submit', function(event){
     }
 });
 
-console.log(productPrice?.innerHTML);
+console.log(productPrice);
