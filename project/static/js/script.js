@@ -8,7 +8,6 @@ const formLogin = document.querySelector('.form');
 
 input?.addEventListener('input', async function(e){
     let response = await fetch(`/search?q=${this.value}`);
-    console.log(response);
     let shows = await response.json();
     let html = '';
     for (let id in shows) {
