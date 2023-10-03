@@ -19,8 +19,7 @@ input?.addEventListener('input', async function(e){
 });
 
 btns?.forEach((...btn)=>{
-    console.log(btn);
-  btn[0].addEventListener('click', function(){
+    btn[0].addEventListener('click', function(){
       this.innerHTML++;
   });
 });
@@ -34,7 +33,7 @@ formLogin?.addEventListener('submit', function(event){
     }
 });
 
-console.log(productPrice?.__proto__);
-productPrice?.forEach((...price)=>{
-    console.log(this, price)
+// console.log(productPrice?.__proto__);
+productPrice?.forEach(function(price){
+    console.log(price.innerText);
 });
