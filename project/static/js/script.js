@@ -35,5 +35,5 @@ formLogin?.addEventListener('submit', function(event){
 
 // console.log(productPrice?.__proto__);
 productPrice?.forEach(function(price){
-    console.log(price.innerText);
+    console.log(Number(price.innerText++));
 });
