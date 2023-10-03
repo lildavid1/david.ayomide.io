@@ -20,8 +20,6 @@ app.config["MAIL_USE_TLS"] = True
 app.config["MAIL_USERNAME"] = os.getenv("MAIL_USERNAME")
 mail = Mail(app)
 
-
-
 # setup databases
 db = SQL(os.getenv("URI"))
 dbS = SQL(os.getenv("SUPA"))
