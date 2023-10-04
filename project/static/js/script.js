@@ -38,5 +38,5 @@ productPrice?.forEach(function(price){
     console.log(Number(price.innerText));
 
 });
-
-console.log(num % 2 === 0 ? true : false)
+ const num = 4;
+console.log(num % 2 === 0 ?? true)
