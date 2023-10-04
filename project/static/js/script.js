@@ -39,4 +39,4 @@ productPrice?.forEach(function(price){
 
 });
  const num = 4;
-console.log(num % 2 === 0 ?? true)
+console.log(num % 2 === 0 && true)
