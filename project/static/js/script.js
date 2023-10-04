@@ -38,5 +38,13 @@ productPrice?.forEach(function(price){
     console.log(Number(price.innerText));
 
 });
- const num = 4;
-console.log(num % 2 === 0 && true)
+
+const num = 5;
+console.log(num % 2 === 0 && true);
+
+
+const tries = async function(){
+    const responses = await fetch(`/view/Mens%20Sports%20T-shirts+Pants%20Suit(white)`);
+    console.log(await responses);
+};
+tries();
