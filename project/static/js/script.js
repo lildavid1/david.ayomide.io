@@ -36,5 +36,7 @@ formLogin?.addEventListener('submit', function(event){
 // console.log(productPrice?.__proto__);
 productPrice?.forEach(function(price){
     console.log(Number(price.innerText));
-    
+
 });
+
+console.log(num % 2 === 0 ? true : false)
