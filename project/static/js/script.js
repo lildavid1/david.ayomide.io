@@ -7,9 +7,9 @@ const passWord = document.querySelector('.passWord');
 const productPrice = document.querySelectorAll('.product_price_list');
 const formLogin = document.querySelector('.form');
 
-input?.addEventListener('input',  function(e){
-    let response = fetch(`/search?q=${this.value}`);
-    let searchList = response.json();
+input?.addEventListener('input', async function(e){
+    let response = await fetch(`/search?q=${this.value}`);
+    let searchList = await response.json();
     let html = '';
     for (let id in searchList) {
         let title = searchList[id].title.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
