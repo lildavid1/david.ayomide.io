@@ -65,3 +65,4 @@ const obj = {
         alert('hello, world')
     }
 }
+console.log(fetch())
