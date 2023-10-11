@@ -60,4 +60,8 @@ const api = async function(){
     console.log(...resAwait.entries())
 };
 // api();
-
+const obj = {
+    david(){
+        alert('hello, world')
+    }
+}
