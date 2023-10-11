@@ -11,8 +11,8 @@ input?.addEventListener('input', async function(e){
     let response = await fetch(`/search?q=${this.value}`);
     let searchList = await response.json();
     let html = '';
-    for (let id in searchList) {
-        let title = searchList[id].title.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
+    for (let s in searchList) {
+        let title = searchList[s].title.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
         html += `<li class="li"><a class="anchor" href="/view/${title}">${title}</a></li>`;
         }
     document.querySelector('.ul').innerHTML = html;
@@ -39,11 +39,21 @@ productPrice?.forEach(function(price){
 
 });
 
-console.log(Infinity)
-
 const tries = async function(){
     const responses = await fetch(`/view/Mens%20Sports%20T-shirts+Pants%20Suit(white)`);
     console.log(await responses.__proto__);
     console.log(await responses)
 };
 tries();
+
+const api = async function(){
+    let inputApi = prompt('which user? ')
+    const apiFetch = await fetch(`/api/${inputApi}`);
+    let resAwait = await apiFetch.json();
+    for(let uN in resAwait){
+        console.log(resAwait)
+        console.log(resAwait[uN]?.hash);
+    };
+};
+// api();
+

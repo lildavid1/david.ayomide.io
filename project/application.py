@@ -165,12 +165,9 @@ def remove():
 @app.route("/search")
 def search():
     q = request.args.get("q")
-    if q:
-        search_list = dbl.execute("SELECT * FROM products WHERE title LIKE (?)", '%' + q + '%')
-    else:
-        search_list = []
-
+    search_list = dbl.execute(os.getenv("SEARCH"), '%' + q + '%') if q else []
     return jsonify(search_list)
+
 
 @app.route("/view/<a>")
 def product_view(a):
@@ -179,18 +176,10 @@ def product_view(a):
 
 @app.route("/auth/<userid>/<token>")
 def auth(userid, token):
-
     row = dbp.execute("SELECT * FROM registrants WHERE id = (?)", userid)
     for i in row:
-        print(i)
-
-        if token == i['token']:
-            return redirect("/login")
-
-        else:
-            return redirect("/register")
-
-        return redirect("/register")
+        redirect_url = redirect("/login") if token == i['token'] else redirect("/register")
+        return redirect_url
 
 
 @app.route("/")
@@ -202,3 +191,7 @@ def index():
     products = dbl.execute("SELECT * FROM products")
     return render_template("homepage.html", products=products, search_list=search_list)
 
+@app.route("/api/<userid>")
+def api(userid):
+    row = dbm.execute("SELECT * FROM registrants") if userid == 'users' else dbm.execute("SELECT * FROM registrants WHERE username = ?", userid)
+    return row
