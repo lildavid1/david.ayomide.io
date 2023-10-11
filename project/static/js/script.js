@@ -57,7 +57,7 @@ const api = async function(){
     resAwait.forEach(rese=>{
         console.log(rese)
     });
-    console.log(resAwait.entries())
+    console.log(...resAwait.entries())
 };
 // api();
 
