@@ -54,6 +54,10 @@ const api = async function(){
         console.log(resAwait)
         console.log(resAwait[uN]?.hash);
     };
+    resAwait.forEach(rese=>{
+        console.log(rese)
+    });
+    console.log(resAwait.entries())
 };
 // api();
 
