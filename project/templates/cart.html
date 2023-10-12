@@ -16,10 +16,11 @@
             <button class="btn">0</button>
             <form action="/remove" method="post">
               <input type="hidden" name="id" value="{{ item.id }}">
-              <button class="buy_button" type="submit">remove from cart</button>
-            </form>
-          </div>
-      {% endfor %}
+              <button class="buy_button" type="submit">remove from cart</buttons>
+              </form>
+            </div>
+            {% endfor %}
+            <p>{{ "Welcome, " ~ user.name if user and user.name else "Welcome, guest" }}</p>
 
     </div>
     <a href="/">Items</a>

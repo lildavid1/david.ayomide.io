@@ -24,14 +24,6 @@ btns?.forEach((...btn)=>{
   });
 });
 
-formLogin?.addEventListener('submit', function(event){
-    console.log(event);
-    if(!this.value && !passWord.value){
-        this.querySelector('.alert').innerText = 'required information';
-        this.querySelector('.aler').innerText = 'required information';
-        return false;
-    }
-});
 
 // console.log(productPrice?.__proto__);
 productPrice?.forEach(function(price){
@@ -44,24 +36,14 @@ const tries = async function(){
     console.log(await responses.__proto__);
     console.log(await responses)
 };
-tries();
 
 const api = async function(){
-    let inputApi = prompt('which user? ')
+    let inputApi = await prompt('which user? ')
     const apiFetch = await fetch(`/api/${inputApi}`);
-    let resAwait = await apiFetch.json();
-    for(let uN in resAwait){
-        console.log(resAwait)
-        console.log(resAwait[uN]?.hash);
-    };
-    resAwait.forEach(rese=>{
-        console.log(rese)
-    });
-    console.log(...resAwait.entries())
+    const resAwait = await apiFetch.json();
+    const [first, second] = resAwait;
+    // return first, second;
 };
-// api();
-const obj = {
-    david(){
-        alert('hello, world')
-    }
-}
+
+api()
+
