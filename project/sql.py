@@ -8,3 +8,5 @@ price = input("price: ")
 db.execute("INSERT INTO products(title, img, desc, price) VALUES(?,?,?,?)", title, img, desc, price)
 
 print(db.execute("select * from registrants"))
+
+
