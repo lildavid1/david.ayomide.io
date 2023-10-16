@@ -139,7 +139,8 @@ def product():
 
         if id:
             session["cart"].append(id)
-            print(session["cart"])
+            [*ids] = set(session["cart"])
+            print(ids)
         return redirect("/product")
 
     items = dbl.execute("SELECT * FROM products WHERE id IN (?)", session["cart"])
