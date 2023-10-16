@@ -10,8 +10,10 @@ const formLogin = document.querySelector('.form');
 input?.addEventListener('input', async function(e){
     let response = await fetch(`/search?q=${this.value}`);
     let searchList = await response.json();
+    console.log(searchList)
     let html = '';
     for (let s in searchList) {
+        console.log(searchList[s]?.img)
         let title = searchList[s].title.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
         html += `<li class="li"><a class="anchor" href="/view/${title}">${title}</a></li>`;
         }
@@ -19,6 +21,7 @@ input?.addEventListener('input', async function(e){
 });
 
 btns?.forEach((...btn)=>{
+    console.log(btn)
     btn[0].addEventListener('click', function(){
       this.innerHTML++;
   });
@@ -31,19 +34,14 @@ productPrice?.forEach(function(price){
 
 });
 
-const tries = async function(){
-    const responses = await fetch(`/view/Mens%20Sports%20T-shirts+Pants%20Suit(white)`);
-    console.log(await responses.__proto__);
-    console.log(await responses)
-};
-
 const api = async function(){
     let inputApi = await prompt('which user? ')
     const apiFetch = await fetch(`/api/${inputApi}`);
     const resAwait = await apiFetch.json();
     const [first, second] = resAwait;
-    // return first, second;
+    resAwait?.forEach(res=>console.log(res?.full_name))
+    console.log(first?.[prompt('your name? ')], second?.hash)
+    console.log(...Object.values(first)?.entries())
+    return first, second;
 };
-
-api()
 

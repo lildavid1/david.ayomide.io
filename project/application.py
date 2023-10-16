@@ -28,9 +28,9 @@ dbp = SQL(os.getenv("PSCALE"))
 dbl = SQL("sqlite:///project.db")
 
 # setting up session
-# app.config['SESSION_TYPE'] = 'redis'
-# app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
-app.config['SESSION_TYPE'] = 'filesystem'
+app.config['SESSION_TYPE'] = 'redis'
+app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
+# app.config['SESSION_TYPE'] = 'filesystem'
 app.permanent_session_lifetime = timedelta(days=5)
 Session(app)
 
@@ -142,6 +142,7 @@ def product():
         return redirect("/product")
 
     items = dbl.execute("SELECT * FROM products WHERE id IN (?)", session["cart"])
+    print(dbl.execute("SELECT count(*) FROM products WHERE id IN (?)", session["cart"]))
     return render_template("cart.html", items=items, name=('000ayo'))
 
 
@@ -193,5 +194,7 @@ def index():
 
 @app.route("/api/<userid>")
 def api(userid):
-    row = dbm.execute("SELECT * FROM registrants") if userid == 'users' else dbm.execute("SELECT * FROM registrants WHERE username = ?", userid)
+    row = dbp.execute("SELECT * FROM registrants") if userid == 'users' else dbm.execute("SELECT * FROM registrants WHERE username = ?", userid)
     return row
+
+
