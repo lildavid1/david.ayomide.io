@@ -159,8 +159,8 @@ def remove():
             session["cart"].remove(id)
 
             return redirect("/product")
-
-    items = dbl.execute("SELECT * FROM search WHERE id IN (?)", session["cart"])
+    [*ids] = set(session("cart"))
+    items = dbl.execute("SELECT * FROM search WHERE id IN (?)", ids)
     return render_template("cart.html", items=items)
 
 
