@@ -12,8 +12,7 @@ input?.addEventListener('input', async function(e){
     let searchList = await response.json();
     console.log(searchList)
     let html = '';
-    for (let s in searchList) {
-        console.log(searchList[s]?.img)
+    for (let s in searchList){
         let title = searchList[s].title.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
         html += `<li class="li"><a class="anchor" href="/view/${title}">${title}</a></li>`;
         }
