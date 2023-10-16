@@ -139,9 +139,9 @@ def product():
 
         if id:
             session["cart"].append(id)
-            [*ids] = set(session["cart"])
         return redirect("/product")
 
+    [*ids] = set(session["cart"])
     items = dbl.execute("SELECT * FROM products WHERE id IN (?)", ids)
     print(dbl.execute("SELECT count(*) FROM products WHERE id IN (?)", ids))
     return render_template("cart.html", items=items, name=('000ayo'))
