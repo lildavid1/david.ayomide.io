@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module", // Add this line to specify ES modules
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@planetscale/database": "^1.11.0",
-    "ws": "^8.14.2"
+    "@planetscale/database": "^1.11.0"
   }
 }
