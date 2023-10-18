@@ -2,6 +2,7 @@
   "name": "project",
   "version": "1.0.0",
   "description": "",
+  "require": true,
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,5 +17,6 @@
     "mysqlconnector": "^2.0.1",
     "planetscale": "^2.1.0",
     "planetscale-node": "^0.3.0"
-  }
+  },
+  "files": true,
 }
