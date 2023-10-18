@@ -195,7 +195,6 @@ def index():
 
 @app.route("/api/<userid>")
 def api(userid):
-    row = dbp.execute("SELECT * FROM registrants") if userid == 'users' else dbm.execute("SELECT * FROM registrants WHERE username = ?", userid)
+    row = dbp.execute("SELECT * FROM registrants") if userid == 'users' else dbp.execute("SELECT * FROM registrants WHERE username = ?", userid)
     return row
-
 
