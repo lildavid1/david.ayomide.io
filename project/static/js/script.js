@@ -35,15 +35,9 @@ productPrice?.forEach(function(price){
 
 const api = async function(){
     let inputApi = await prompt('which user? ')
-    const apiFetch = await fetch(`/api/${inputApi}`, {
-        method: 'POST',
-    });
+    const apiFetch = await fetch(`/api/${inputApi}`);
     const resAwait = await apiFetch.json();
-    const [first, second] = resAwait;
-    resAwait?.forEach(res=>console.log(res?.full_name))
-    console.log(first?.[prompt('your name? ')], second?.hash)
-    console.log(...Object.values(first)?.entries())
-    return first, second;
+    console.log(new Map(resAwait.entries()))
 };
 
 api()
