@@ -44,7 +44,7 @@ const api = async function(){
     return first, second;
 };
 const data = '';
-fetch('/login', {
+fetch('/api/users', {
     method: 'POST', // Specify the HTTP method as POST
     headers: {
         'Content-Type': 'application/json', // Set the content type if sending JSON data
