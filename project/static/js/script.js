@@ -78,7 +78,7 @@ async function trySam(){
         body: JSON.stringify(data)
     });
     let responseAwait = await resBack.json();
-    console.log(responseAwait.entries())
+    console.log(new Map([...responseAwait.entries()]))
 };
 trySam()
 
