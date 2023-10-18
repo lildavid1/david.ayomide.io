@@ -60,7 +60,8 @@ fetch('/api/users', {
 })
 .then(data => {
     // Handle the response data
-    console.log(data);
+    const [rest] = data;
+    console.log(rest)
 })
 .catch(error => {
     // Handle errors
