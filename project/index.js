@@ -1,9 +1,9 @@
 import { connect } from '@planetscale/database'
 
 const config = {
-  host: '<host>',
-  username: '<user>',
-  password: '<password>'
+  host: 'aws.connect.psdb.cloud',
+  username: 'wtb3duvh5dy4n67qrr48',
+  password: 'pscale_pw_UoxvB9rrC1LgHXZjDmgDzCYdO7n4SSgPvBewd78PNDv'
 }
 
 const conn = connect(config)
