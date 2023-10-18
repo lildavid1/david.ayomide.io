@@ -40,5 +40,3 @@ const api = async function(){
     console.log(new Map(resAwait.entries()))
 };
 
-api()
-
