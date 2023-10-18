@@ -18,7 +18,8 @@ async function runQuery() {
     password: 'pscale_pw_ykn7ikOpzq3bcTFbe8awBu3AI48vXjZewJ9gVkS3mEo',
     database: 'adebayo-shopping'
   });
-  console.log(await connection.execute("SELECT * FROM registrants"))
+  // console.log(connection.execute("SELECT count(*) FROM registrants"))
+  console.log(connection.execute())
 };
 
 runQuery();
