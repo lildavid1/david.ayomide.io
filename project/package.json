@@ -13,6 +13,7 @@
     "@planetscale/database": "^1.11.0",
     "dotenv": "^16.3.1",
     "mysql2": "^3.6.2",
+    "mysqlconnector": "^2.0.1",
     "planetscale": "^2.1.0",
     "planetscale-node": "^0.3.0"
   }
