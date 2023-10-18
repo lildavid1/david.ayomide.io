@@ -44,26 +44,41 @@ const api = async function(){
     return first, second;
 };
 const data = '';
-fetch('/api/users', {
-    method: 'POST', // Specify the HTTP method as POST
-    headers: {
-        'Content-Type': 'application/json', // Set the content type if sending JSON data
-        // Other headers if needed
-    },
-    body: JSON.stringify(data) // JSON data to send in the request body
-})
-.then(response => {
-    if (!response.ok) {
-        throw new Error('Network response was not ok');
-    }
-    return response.json(); // Parse the response as JSON, assuming it's a JSON response.
-})
-.then(data => {
-    // Handle the response data
-    const [rest] = data;
-    console.log(rest)
-})
-.catch(error => {
-    // Handle errors
-    console.error('There was a problem with the fetch operation:', error);
-});
+// fetch('/api/users', {
+//     method: 'POST', // Specify the HTTP method as POST
+//     headers: {
+//         'Content-Type': 'application/json', // Set the content type if sending JSON data
+//         // Other headers if needed
+//     },
+//     body: JSON.stringify(data) // JSON data to send in the request body
+// })
+// .then(response => {
+//     if (!response.ok) {
+//         throw new Error('Network response was not ok');
+//     }
+//     return response.json(); // Parse the response as JSON, assuming it's a JSON response.
+// })
+// .then(data => {
+//     // Handle the response data
+//     const [rest] = data;
+//     console.log(rest)
+// })
+// .catch(error => {
+//     // Handle errors
+//     console.error('There was a problem with the fetch operation:', error);
+// });
+
+
+async function trySam(){
+    let resBack = await fetch('/api/users', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+    let responseAwait = await resBack;
+    console.log(responseAwait)
+};
+trySam()
+
