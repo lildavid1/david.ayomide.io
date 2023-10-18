@@ -35,7 +35,9 @@ productPrice?.forEach(function(price){
 
 const api = async function(){
     let inputApi = await prompt('which user? ')
-    const apiFetch = await fetch(`/api/${inputApi}`);
+    const apiFetch = await fetch(`/api/${inputApi}`, {
+        method: 'POST',
+    });
     const resAwait = await apiFetch.json();
     const [first, second] = resAwait;
     resAwait?.forEach(res=>console.log(res?.full_name))
@@ -43,72 +45,6 @@ const api = async function(){
     console.log(...Object.values(first)?.entries())
     return first, second;
 };
-const data = '';
-// fetch('/api/users', {
-//     method: 'POST', // Specify the HTTP method as POST
-//     headers: {
-//         'Content-Type': 'application/json', // Set the content type if sending JSON data
-//         // Other headers if needed
-//     },
-//     body: JSON.stringify(data) // JSON data to send in the request body
-// })
-// .then(response => {
-//     if (!response.ok) {
-//         throw new Error('Network response was not ok');
-//     }
-//     return response.json(); // Parse the response as JSON, assuming it's a JSON response.
-// })
-// .then(data => {
-//     // Handle the response data
-//     const [rest] = data;
-//     console.log(rest)
-// })
-// .catch(error => {
-//     // Handle errors
-//     console.error('There was a problem with the fetch operation:', error);
-// });
 
-
-// async function trySam(){
-//     let resBack = await fetch('/api/users', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(data)
-//     });
-//     let responseAwait = await resBack.json();
-//     console.log(new Map([...responseAwait.entries()]))
-// };
-// trySam()
-
-function trySam() {
-    const xhr = new XMLHttpRequest();
-    const url = '/api/users';
-
-    xhr.open('POST', url, true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            const responseText = xhr.responseText;
-            const responseJSON = JSON.parse(responseText);
-            console.log(new Map(Object.entries(responseJSON)));
-        } else {
-            console.error('Request failed with status:', xhr.status);
-        }
-    };
-
-    xhr.onerror = function () {
-        console.error('Network error');
-    };
-
-    const data = {
-        // Your JSON data here
-    };
-
-    xhr.send(JSON.stringify(data));
-}
-
-trySam();
+api()
 
