@@ -28,4 +28,4 @@ const planetscale = require('@planetscale/database');
 //     connection.end();
 //   });
 // });
-console.log(planetscale)
+console.log(planetscale.connect())
