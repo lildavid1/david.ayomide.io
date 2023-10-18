@@ -44,3 +44,25 @@ const api = async function(){
     return first, second;
 };
 
+fetch('/register', {
+    method: 'POST', // Specify the HTTP method as POST
+    headers: {
+        'Content-Type': 'application/json', // Set the content type if sending JSON data
+        // Other headers if needed
+    },
+    body: JSON.stringify(data) // JSON data to send in the request body
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.json(); // Parse the response as JSON, assuming it's a JSON response.
+})
+.then(data => {
+    // Handle the response data
+    console.log(data);
+})
+.catch(error => {
+    // Handle errors
+    console.error('There was a problem with the fetch operation:', error);
+});
