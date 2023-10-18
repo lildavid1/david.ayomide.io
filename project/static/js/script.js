@@ -43,7 +43,7 @@ const api = async function(){
     console.log(...Object.values(first)?.entries())
     return first, second;
 };
-
+const data = '';
 fetch('/register', {
     method: 'POST', // Specify the HTTP method as POST
     headers: {
