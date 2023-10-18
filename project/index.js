@@ -28,4 +28,8 @@ const planetscale = require('@planetscale/database');
 //     connection.end();
 //   });
 // });
-console.log(planetscale.connect())
+console.log(planetscale.connect({
+  host: 'aws.connect.psdb.cloud',
+  username: 'wtb3duvh5dy4n67qrr48',
+  password: 'pscale_pw_UoxvB9rrC1LgHXZjDmgDzCYdO7n4SSgPvBewd78PNDv'
+}))
