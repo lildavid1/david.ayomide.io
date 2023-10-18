@@ -1,35 +1,15 @@
 const planetscale = require('@planetscale/database');
 
-// Define your database connection settings
-// const connection = planetscale.createConnection({
-//   host: 'aws.connect.psdb.cloud',
-//   user: 'your-mysql-username',
-//   password: 'your-mysql-password',
-//   database: 'your-mysql-database',
-// });
-
-// // Connect to the database
-// connection.connect((err) => {
-//   if (err) {
-//     console.error('Error connecting to the database:', err);
-//     return;
-//   }
-//   console.log('Connected to the database');
-
-//   // Perform a query
-//   connection.query('SELECT * FROM your_table', (queryError, results) => {
-//     if (queryError) {
-//       console.error('Error executing the query:', queryError);
-//     } else {
-//       console.log('Query results:', results);
-//     }
-
-//     // Close the connection
-//     connection.end();
-//   });
-// });
-console.log(planetscale.connect({
+console.log(planetscale)
+planetscale.connect({
   host: 'aws.connect.psdb.cloud',
   username: 'wtb3duvh5dy4n67qrr48',
   password: 'pscale_pw_UoxvB9rrC1LgHXZjDmgDzCYdO7n4SSgPvBewd78PNDv'
-}))
+});
+
+const results =  planetscale.execute('select 1 from dual where 1=?', [1])
+console.log(results)
+
+async function tryko(){
+  console.log(await planetscale)
+}
