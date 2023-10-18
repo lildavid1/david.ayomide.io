@@ -37,6 +37,6 @@ const api = async function(){
     let inputApi = await prompt('which user? ')
     const apiFetch = await fetch(`/api/${inputApi}`);
     const resAwait = await apiFetch.json();
-    console.log(new Map(resAwait.entries()))
+    console.log(Array.isArray(resAwait))
 };
 
