@@ -69,16 +69,46 @@ const data = '';
 // });
 
 
-async function trySam(){
-    let resBack = await fetch('/api/users', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    });
-    let responseAwait = await resBack.json();
-    console.log(new Map([...responseAwait.entries()]))
-};
-trySam()
+// async function trySam(){
+//     let resBack = await fetch('/api/users', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(data)
+//     });
+//     let responseAwait = await resBack.json();
+//     console.log(new Map([...responseAwait.entries()]))
+// };
+// trySam()
+
+function trySam() {
+    const xhr = new XMLHttpRequest();
+    const url = '/api/users';
+
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            const responseText = xhr.responseText;
+            const responseJSON = JSON.parse(responseText);
+            console.log(new Map(Object.entries(responseJSON)));
+        } else {
+            console.error('Request failed with status:', xhr.status);
+        }
+    };
+
+    xhr.onerror = function () {
+        console.error('Network error');
+    };
+
+    const data = {
+        // Your JSON data here
+    };
+
+    xhr.send(JSON.stringify(data));
+}
+
+trySam();
 
