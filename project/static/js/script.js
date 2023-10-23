@@ -8,6 +8,7 @@ const productPrice = document.querySelectorAll('.product_price_list');
 const formLogin = document.querySelector('.form');
 
 input?.addEventListener('input', async function(e){
+    history.pushState(null, this.value, `/search?q=${this.value}`);
     let response = await fetch(`/search?q=${this.value}`);
     let searchList = await response.json();
     console.log(searchList)
