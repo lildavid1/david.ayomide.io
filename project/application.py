@@ -190,6 +190,7 @@ def index():
         return redirect("/login")
 
     search_list = dbl.execute("SELECT * FROM search LIMIT 20")
+    rowtry = db.execute("CALL 'try'()")
     products = dbl.execute("SELECT * FROM products")
     return render_template("homepage.html", products=products, search_list=search_list)
 
