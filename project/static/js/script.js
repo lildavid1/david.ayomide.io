@@ -11,7 +11,6 @@ input?.addEventListener('input', async function(e){
     history.pushState(null, this.value, `/search?q=${this.value}`);
     let response = await fetch(`/search?q=${this.value}`);
     let searchList = await response.json();
-    console.log(searchList)
     let html = '';
     for (let s in searchList){
         let title = searchList[s].title.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
@@ -40,5 +39,3 @@ const api = async function(){
     const [first, ...rest] = resAwait;
     console.log(first, rest)
 };
-
-api()
