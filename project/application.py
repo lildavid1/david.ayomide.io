@@ -190,7 +190,6 @@ def index():
         return redirect("/login")
 
     search_list = dbl.execute("SELECT * FROM search LIMIT 20")
-    rowtry = db.execute("CALL try()")
     products = dbl.execute("SELECT * FROM products")
     return render_template("homepage.html", products=products, search_list=search_list)
 
@@ -198,4 +197,12 @@ def index():
 def api(userid):
     row = dbp.execute("SELECT * FROM registrants") if userid == 'users' else dbp.execute("SELECT * FROM registrants WHERE username = ?", userid)
     return row
+
+@app.route("/api/lol/kol", methods=["POST"])
+def apijik():
+    print(request.headers)
+    thu = request.json
+    print(thu)
+    return redirect("/")
+
 
