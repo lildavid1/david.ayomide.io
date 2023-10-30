@@ -1,10 +1,5 @@
 'use strict';
 
-class LoginUser{
-    constructor(yun){
-        this.email = yun
-    }
-}
 //selectors here
 const input = document.querySelector('.kol');
 const btns = document.querySelectorAll('.btn');
@@ -14,14 +9,13 @@ const formLogin = document.querySelector('.form');
 const re = document.querySelector('.re')
 
 input?.addEventListener('input', async function(e){
-    history.pushState(null, this.value, `/search?q=${this.value}`);
+    window?.location?.reload('true')
     let response = await fetch(`/search?q=${this.value}`);
     let searchList = await response.json();
     let html = '';
     for (let s in searchList){
         let title = searchList[s].title.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
         html += `<li class="li"><a class="anchor" href="/view/${title}">${title}</a></li>`;
-        console.log(new LoginUser(searchList[s].title))
         }
     document.querySelector('.ul').innerHTML = html;
 });
@@ -64,6 +58,10 @@ re?.addEventListener('click', async function() {
     // if(await rety.redirected){
     //     window.location.href = rety.url;
     // }
-    console.log(await rety)
 });
 
+
+async function hujd(){
+    const yuj = await fetch('https://bug-free-robot-45vjwgjp4962jq6r-5000.app.github.dev/search?q=i')
+    console.log(await yuj.json())
+}
