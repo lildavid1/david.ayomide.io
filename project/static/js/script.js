@@ -8,10 +8,13 @@ const productPrice = document.querySelectorAll('.product_price_list');
 const formLogin = document.querySelector('.form');
 const re = document.querySelector('.re')
 
-input?.addEventListener('input', async function(e){
-    window?.location?.reload('true')
+input?.addEventListener('keyup', async function(e){
+    console.log(e)
     let response = await fetch(`/search?q=${this.value}`);
     let searchList = await response.json();
+    for await (const tyh of searchList){
+        console.log(tyh)
+    }
     let html = '';
     for (let s in searchList){
         let title = searchList[s].title.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
@@ -33,7 +36,8 @@ productPrice?.forEach((price)=>{
 
 });
 
-const api = async function(){
+const api = async function(e){
+    console.log(e)
     let inputApi = await prompt('which user? ')
     const apiFetch = await fetch(`/api/${inputApi}`);
     const resAwait = await apiFetch.json();
@@ -42,8 +46,9 @@ const api = async function(){
 };
 
 
-re?.addEventListener('click', async function() {
+re?.addEventListener('click', async function(e) {
     console.log(this)
+    console.log(e)
     const rety = await fetch('/api/lol/kol', {
         method: 'POST',
         body: JSON.stringify(
@@ -62,6 +67,7 @@ re?.addEventListener('click', async function() {
 
 
 async function hujd(){
-    const yuj = await fetch('https://bug-free-robot-45vjwgjp4962jq6r-5000.app.github.dev/search?q=i')
+    const yuj = await fetch('https://www.codewars.com/api/v1/users/davidcoder1234')
     console.log(await yuj.json())
 }
+
