@@ -37,6 +37,7 @@ productPrice?.forEach((price)=>{
 });
 
 const api = async function(e){
+    console.log(arguments)
     console.log(e)
     let inputApi = await prompt('which user? ')
     const apiFetch = await fetch(`/api/${inputApi}`);
@@ -71,3 +72,4 @@ async function hujd(){
     console.log(await yuj.json())
 }
 
+s
