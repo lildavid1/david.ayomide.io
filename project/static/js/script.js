@@ -72,4 +72,3 @@ async function hujd(){
     console.log(await yuj.json())
 }
 
-s
