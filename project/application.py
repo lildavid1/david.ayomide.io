@@ -204,4 +204,3 @@ def apijik():
     print(thu)
     return redirect("/")
 
-
