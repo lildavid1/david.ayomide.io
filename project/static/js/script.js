@@ -86,4 +86,5 @@ const transformer = function(str, fn){
     console.log(`Transformed by: ${fn.name}`)
 }
 
-transformer('Javascript is the best!', upperFirstWord) 
+transformer('Javascript is the best!', upperFirstWord)
+
