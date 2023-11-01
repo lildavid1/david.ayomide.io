@@ -82,4 +82,5 @@ const upperFirstWord = function(str){
 
 const transformer = function(str, fn){
     console.log(`Original string: ${fn}`)
+    console.log(`)
 }
