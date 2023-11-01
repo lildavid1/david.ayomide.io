@@ -66,25 +66,3 @@ re?.addEventListener('click', async function(e) {
 });
 
 
-async function hujd(){
-    const yuj = await fetch('https://www.codewars.com/api/v1/users/davidcoder1234')
-    console.log(await yuj.json())
-}
-
-const oneWord = function(str){
-    return str.replace(/ /g, '').toUpperCase();
-}
-
-const upperFirstWord = function(str){
-    const [first, ...others] = str.split(' ');
-    return [first.toUpperCase(), ...others].join(' ')
-}
-
-const transformer = function(str, fn){
-    console.log(`Original string: ${str}`)
-    console.log(`Transformed string ${fn(str)}`)
-    console.log(`Transformed by: ${fn.name}`)
-}
-
-transformer('Javascript is the best!', upperFirstWord)
-

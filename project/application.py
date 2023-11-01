@@ -56,7 +56,7 @@ def register():
         hash = generate_password_hash(password)
 
         try:
-            # insert into database
+            # insert into database 
             dbp.execute(os.getenv("REGISTER"), email, full_name, username, hash, token)
 
             email = request.form.get("email")
