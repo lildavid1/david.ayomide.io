@@ -143,7 +143,6 @@ def product():
 
     [*ids] = set(session["cart"])
     items = dbl.execute("SELECT * FROM products WHERE id IN (?)", ids)
-    print(dbl.execute("SELECT count(*) FROM products WHERE id IN (?)", ids))
     return render_template("cart.html", items=items, name=('000ayo'))
 
 
@@ -202,5 +201,5 @@ def api(userid):
 def apijik():
     thu = request.json
     print(thu)
-    return redirect("/")
+    return thu
 
