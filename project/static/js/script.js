@@ -82,5 +82,8 @@ const upperFirstWord = function(str){
 
 const transformer = function(str, fn){
     console.log(`Original string: ${fn}`)
-    console.log(`)
+    console.log(`Transformed string ${fn(str)}`)
+    console.log(`Transformed by: ${fn}`)
 }
+
+transformer('Javascript is the best!', upperFirstWord())
