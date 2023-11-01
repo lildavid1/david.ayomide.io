@@ -71,5 +71,11 @@ async function hujd(){
     console.log(await yuj.json())
 }
 
+const oneWord = function(str){
+    return str.replace(/ /g, '').toUpperCase();
+}
 
-
+const upperFirstWord = function(str){
+    const [first.toUpperCase(), ...others] = str.split(' ');
+    return [first, ...others].join(' ')
+}
