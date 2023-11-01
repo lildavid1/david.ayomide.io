@@ -76,6 +76,6 @@ const oneWord = function(str){
 }
 
 const upperFirstWord = function(str){
-    const [first.toUpperCase(), ...others] = str.split(' ');
-    return [first, ...others].join(' ')
+    const [first, ...others] = str.split(' ');
+    return [first.toUpperCase(), ...others].join(' ')
 }
