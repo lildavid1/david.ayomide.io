@@ -79,4 +79,7 @@ const upperFirstWord = function(str){
     const [first, ...others] = str.split(' ');
     return [first.toUpperCase(), ...others].join(' ')
 }
- 
+
+const transformer = function(str, fn){
+    console.log(`Original string: ${fn}`)
+}
