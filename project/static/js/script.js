@@ -31,8 +31,9 @@ btns?.forEach((btn)=>{
 });
 
 
-productPrice?.forEach((price)=>{
-    console.log(let total += Number(price.innerText));
+productPrice?.forEach(price=>{
+    let total += Number(price.innerText);
+    console.log(total);
 });
 
 const api = async function(e){
