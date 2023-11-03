@@ -52,4 +52,5 @@ re?.addEventListener('click', async function(e) {
     // }
 });
 
-const [`hello${9+7}]
+const [`hello${9+7}`] = 'ayo'
+
