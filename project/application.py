@@ -192,8 +192,9 @@ def index():
     products = dbl.execute("SELECT * FROM products")
     return render_template("homepage.html", products=products, search_list=search_list)
 
-@app.route("/api/<userid>")
+@app.route("/api/user")
 def api(userid):
+    request.args.get("")
     row = dbp.execute("SELECT * FROM registrants") if userid == 'users' else dbp.execute("SELECT * FROM registrants WHERE username = ?", userid)
     return row
 
