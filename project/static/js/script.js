@@ -23,16 +23,8 @@ input?.addEventListener('keyup', async function(e){
     document.querySelector('.ul').innerHTML = html;
 });
 
-btns?.forEach((btn)=>{
-    console.log(btn)
-    btn.addEventListener('click', function(){
-      this.innerHTML++;
-  });
-});
 
 const api = async function(e){
-    console.log(arguments)
-    console.log(e)
     let inputApi = await prompt('which user? ')
     const apiFetch = await fetch(`/api/${inputApi}`);
     const resAwait = await apiFetch.json();
