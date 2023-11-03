@@ -52,7 +52,4 @@ re?.addEventListener('click', async function(e) {
     // }
 });
 
-const {} = {
-    name: "ayo"
-}
-console.log(name)
+
