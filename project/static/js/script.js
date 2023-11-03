@@ -26,7 +26,7 @@ input?.addEventListener('keyup', async function(e){
 
 const api = async function(e){
     let inputApi = await prompt('which user? ')
-    const apiFetch = await fetch(`/api/${inputApi}`);
+    const apiFetch = await fetch(`/api/user?userid=${inputApi}`);
     const resAwait = await apiFetch.json();
     const [...rest] = resAwait;
     console.log(...rest)
