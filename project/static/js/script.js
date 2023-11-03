@@ -52,3 +52,4 @@ re?.addEventListener('click', async function(e) {
     // }
 });
 
+const [`hello${9+7}]
