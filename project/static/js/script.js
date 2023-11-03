@@ -52,7 +52,7 @@ re?.addEventListener('click', async function(e) {
     // }
 });
 
-const {[`${prompt('what do you need')}`]} = {
+const {} = {
     name: "ayo"
 }
-
+console.log(name)
