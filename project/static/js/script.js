@@ -14,17 +14,18 @@ const re = document.querySelector('.re')
 input?.addEventListener('keyup', async function(e){
     let response = await fetch(`/search?q=${this.value}`);
     let searchList = await response.json();
+    console.dir(searchList)
     let html = '';
     for (let s in searchList){
-        let title = searchList[s].title.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('%20', ' ');
+        let title = searchList[s].title.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('%20', ' ');
         html += `<li class="li"><a class="anchor" href="/view/${title}">${title}</a></li>`;
         }
     document.querySelector('.ul').innerHTML = html;
 });
 
-btns?.forEach((...btn)=>{
+btns?.forEach((btn)=>{
     console.log(btn)
-    btn[0].addEventListener('click', function(){
+    btn.addEventListener('click', function(){
       this.innerHTML++;
   });
 });
@@ -64,5 +65,4 @@ re?.addEventListener('click', async function(e) {
     //     window.location.href = rety.url;
     // }
 });
-
 
