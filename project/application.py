@@ -193,8 +193,8 @@ def index():
     return render_template("homepage.html", products=products, search_list=search_list)
 
 @app.route("/api/user")
-def api(userid):
-    request.args.get("")
+def api():
+    request.args.get("userid")
     row = dbp.execute("SELECT * FROM registrants") if userid == 'users' else dbp.execute("SELECT * FROM registrants WHERE username = ?", userid)
     return row
 
