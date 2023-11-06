@@ -52,5 +52,7 @@ re?.addEventListener('click', async function(e) {
 });
 
 btns?.forEach(btn => {
-    btn.addEventListener('click', )
+    btn.addEventListener('click', function(){
+        this.innerText++;
+    })
 })
