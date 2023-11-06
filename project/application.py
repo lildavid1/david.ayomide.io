@@ -202,5 +202,5 @@ def api():
 def apijik():
     thu = request.json
     print(thu)
-    return thu
+    return redirect("/")
 
