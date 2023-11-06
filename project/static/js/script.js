@@ -47,9 +47,9 @@ re?.addEventListener('click', async function(e) {
         }
     });
     console.log(await rety.json())
-    // if(await rety.redirected){
-    //     window.location.href = rety.url;
-    // }
+    if(await rety.redirected){
+        window.location.href = rety.url;
+    }
 });
 
 btns?.forEach(btn => {
