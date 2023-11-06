@@ -14,7 +14,6 @@ const re = document.querySelector('.re')
 input?.addEventListener('keyup', async function(e){
     let response = await fetch(`/search?q=${this.value}`);
     let searchList = await response.json();
-    console.dir(searchList)
     let html = '';
     for (let s in searchList){
         let title = searchList[s].title.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('%20', ' ');
