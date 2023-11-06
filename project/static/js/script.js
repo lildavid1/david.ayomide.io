@@ -34,12 +34,9 @@ const api = async function(e){
 
 
 re?.addEventListener('click', async function(e) {
-    console.log(...this.classList, this.className)
+    // console.log(...this.classList, this.className)
     const rety = await fetch('/api/lol/kol');
     console.log(await rety.json())
-    if(await rety.redirected){
-        window.location.href = rety.url;
-    }
 });
 
 btns?.forEach(btn => {
