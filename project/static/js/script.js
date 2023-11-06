@@ -1,6 +1,3 @@
-// for await (const tyh of searchList){
-//     console.log(tyh)
-// }
 'use strict';
 
 //selectors here
@@ -48,5 +45,15 @@ btns?.forEach(btn => {
     })
 });
 
+ const tryU = [...productPrice]
+ console.log(tryU)
 
+// for(const i of productPrice){
+//     console.log(i)
+//     tryU.push(Number(i.innerText))
+// }
+// tryU.reduce((acc, curr, i, tryUr)=>{
+//     console.log(acc+curr, tryUr);
+//     total?.innerText === acc+curr;
+// })
 
