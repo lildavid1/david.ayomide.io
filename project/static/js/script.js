@@ -57,3 +57,4 @@ btns?.forEach(btn => {
         this.innerText++;
     })
 });
+console.log(...btns)
