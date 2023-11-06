@@ -91,9 +91,9 @@ def login():
         # collect login information
         username = request.form.get("username").lower().strip()
         password = request.form.get("password")
-
+        dbm.execute("START TRANSACTION")
         rows = dbm.execute("SELECT * FROM registrants WHERE username = (?)", username)
-
+        dbm.execute("COMMIT")
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], password):
             flash("Invalid credentials", category="error")
             return redirect("/login")
