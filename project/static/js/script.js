@@ -49,7 +49,7 @@ const tryU = []
 for(const i of productPrice){
     tryU?.push(Number(i?.innerText))
 }
-total?.innerText === tryU?.reduce((acc, curr, i, tryUr)=>{
+total?.textContent === tryU?.reduce((acc, curr, i, tryUr)=>{
     return acc + curr;
 })
 
