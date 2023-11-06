@@ -45,15 +45,15 @@ btns?.forEach(btn => {
     })
 });
 
- const tryU = [...productPrice]
- console.log(tryU)
+//  const tryU = [...productPrice]
+//  console.log(tryU)
 
-for(const i of productPrice){
-    console.log(i)
-    tryU.push(Number(i.innerText))
-}
-tryU.reduce((acc, curr, i, tryUr)=>{
-    console.log(acc+curr, tryUr);
-    total?.innerText === acc+curr;
-}, acc)
+// for(const i of productPrice){
+//     console.log(i)
+//     tryU.push(Number(i.innerText))
+// }
+// tryU.reduce((acc, curr, i, tryUr)=>{
+//     debugger acc+curr;
+//     total?.innerText === acc+curr;
+// })
 
