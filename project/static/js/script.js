@@ -56,8 +56,4 @@ btns?.forEach(btn => {
     btn.addEventListener('click', function(){
         this.innerText++;
     })
-})
-productPrice.forEach(pp=>{
-    total.innerText = pp.innerText + i
-})
-
+});
