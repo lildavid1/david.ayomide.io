@@ -57,6 +57,7 @@ btns?.forEach(btn => {
         this.innerText++;
     })
 })
-productPrice?.reduce((pp)=>{
+productPrice?.innerText?.reduce(pp=>{
     total.innerText = pp + i
 })
+
