@@ -44,16 +44,12 @@ btns?.forEach(btn => {
         this.innerText++;
     })
 });
+const tryU = []
 
-//  const tryU = [...productPrice]
-//  console.log(tryU)
-
-// for(const i of productPrice){
-//     console.log(i)
-//     tryU.push(Number(i.innerText))
-// }
-// tryU.reduce((acc, curr, i, tryUr)=>{
-//     debugger acc+curr;
-//     total?.innerText === acc+curr;
-// })
+for(const i of productPrice){
+    tryU?.push(Number(i?.innerText))
+}
+total?.innerText === tryU?.reduce((acc, curr, i, tryUr)=>{
+    return acc + curr;
+})
 
