@@ -200,7 +200,5 @@ def api():
 
 @app.route("/api/lol/kol")
 def apijik():
-    thu = request.json
-    print(thu)
     return redirect("/")
 
