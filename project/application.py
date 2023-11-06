@@ -200,5 +200,5 @@ def api():
 
 @app.route("/api/lol/kol")
 def apijik():
-    return redirect("/cart")
+    return redirect("/product")
 
