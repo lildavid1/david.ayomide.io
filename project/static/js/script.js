@@ -53,3 +53,4 @@ total?.textContent = tryU?.reduce((acc, curr, i, tryUr)=>{
     return acc + curr;
 })
 
+s
