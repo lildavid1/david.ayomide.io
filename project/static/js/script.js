@@ -44,13 +44,4 @@ btns?.forEach(btn => {
         this.innerText++;
     })
 });
-const tryU = []
 
-for(const i of productPrice){
-    tryU?.push(Number(i?.innerText))
-}
-total?.textContent = tryU?.reduce((acc, curr, i, tryUr)=>{
-    return acc + curr;
-})
-
-s
