@@ -13,10 +13,10 @@ input?.addEventListener('keyup', async function(e){
     let response = await fetch(`/search?q=${this.value}`);
     let searchList = await response.json();
     let html = '';
-    for (let s in searchList){
-        let title = searchList[s].title.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('%20', ' ');
+    searchList.flatMap(obj=>{
+        let title = obj?.title?.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('%20', ' ');
         html += `<li class="li"><a class="anchor" href="/view/${title}">${title}</a></li>`;
-        }
+    });
     document.querySelector('.ul').innerHTML = html;
 });
 
