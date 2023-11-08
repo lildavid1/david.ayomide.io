@@ -149,11 +149,6 @@ def update():
         finally:
             pass
 
-        # message = Message("David From Shoppingcomplex.com", recipients=[email])
-        # message.body = render_template("email.html")
-        # message.html = render_template("email.html")
-        # mail.send(message)
-
     return render_template("forget.html")
 
 
