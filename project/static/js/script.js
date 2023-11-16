@@ -9,19 +9,18 @@ const formLogin = document.querySelector('.form');
 const re = document.querySelector('.re')
 const total = document.querySelector('.total')
 
-input?.addEventListener('keyup', async function(e){
+input?.addEventListener('keyup', async function(e) {
     let response = await fetch(`/search?q=${this.value}`);
     let searchList = await response.json();
     let html = '';
-    searchList.flatMap(obj=>{
+    searchList.flatMap(obj => {
         let title = obj?.title?.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('%20', ' ');
         html += `<li class="li"><a class="anchor" href="/view/${title}">${title}</a></li>`;
     });
     document.querySelector('.ul').innerHTML = html;
 });
 
-
-const api = async function(e){
+const api = async function(e) {
     let inputApi = await prompt('which user? ')
     const apiFetch = await fetch(`/api/user?userid=${inputApi}`);
     const resAwait = await apiFetch.json();
@@ -34,13 +33,13 @@ re?.addEventListener('click', async function(e) {
     // console.log(...this.classList, this.className)
     const rety = await fetch('/api/lol/kol');
     console.log(await rety)
-    if(rety.redirected){
+    if (rety.redirected) {
         window.location.href = rety.url;
     }
 });
 
 btns?.forEach(btn => {
-    btn.addEventListener('click', function(){
+    btn.addEventListener('click', function() {
         this.textContent++
     })
 })
