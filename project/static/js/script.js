@@ -9,6 +9,7 @@ const formLogin = document.querySelector('.form');
 const re = document.querySelector('.re')
 const total = document.querySelector('.total')
 
+
 input?.addEventListener('keyup', async function(e) {
     let response = await fetch(`/search?q=${this.value}`);
     let searchList = await response.json();
