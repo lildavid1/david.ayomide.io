@@ -51,6 +51,81 @@ minusAll?.forEach((c,i)=>{
     c.addEventListener('click', function(){
         console.log(this,i)
         console.log(+quantitySize[i].textContent--)
-        
+
     })
 })
+
+
+
+
+
+
+
+
+
+
+
+//
+//    We've just invented a new game for college kids that we call cups.  The object of the game is to
+//      bounce a ping-pong ball into one of three cups.  Multiple players will have multiple rounds to score
+//      as many points as possible.
+//  
+//  Possible points are:
+//      Large cup - 3 points
+//      Small cup - 6 points
+//      Extra small cup - 7 points
+//
+//  In the code below we will be given the total score that the player got.  We need to determine
+
+//
+//    We've just invented a new game for college kids that we call cups.  The object of the game is to
+//      bounce a ping-pong ball into one of three cups.  Multiple players will have multiple rounds to score
+//      as many points as possible.
+//  
+//  Possible points are:
+//      Large cup - 3 points
+//      Small cup - 6 points
+//      Extra small cup - 7 points
+//
+//  In the code below we will be given the total score that the player got.  We need to determine
+//      a combination of points that let them get that score.  Please complete the method
+//      'getLeastNumberOfScores' to make this happen.  Order of the numbers does not matter.
+//          If no combination is possible, nothing should be printed.
+
+// Should output nothing
+calculateScores(2);
+
+// Should output 3
+calculateScores(3);
+
+// Should output 3 and 7 (order doesn't matter)
+calculateScores(10);
+
+// Should output 3 and 6 (order doesn't matter)
+calculateScores(9)
+// Should output nothing
+calculateScores(11);
+
+// Should output 6 and 6
+calculateScores(12);
+
+
+function calculateScores(targetScore) {
+  console.log("Scores for targetScore:"+targetScore);
+  let scores = getLeastNumberOfScores(targetScore);
+  for (let i = 0; i < scores.length; i++){
+      console.log(scores[i]);
+  }
+}
+function getLeastNumberOfScores(targetScore) {
+// Put your code here
+    if(targetScore>= 2){
+        return []
+    }else if(targetScore<=6){
+        return [6]
+    }
+    else if(targetScore<=7){
+        return [3,7]
+    }
+
+}
