@@ -10,6 +10,7 @@ const re = document.querySelector('.re')
 const total = document.querySelector('.total')
 const minusAll = document.querySelectorAll('.minus')
 const plusAll = document.querySelectorAll('.plus')
+const quantitySize = document.querySelectorAll('.quantity')
 
 input?.addEventListener('keyup', async function(e) {
     let response = await fetch(`/search?q=${this.value}`);
@@ -49,5 +50,6 @@ re?.addEventListener('click', async function(e) {
 minusAll?.forEach((c,i)=>{
     c.addEventListener('click', function(){
         console.log(this,i)
+        console.log(+quantitySize[i].textContent++)
     })
 })
