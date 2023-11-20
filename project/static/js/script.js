@@ -50,6 +50,7 @@ re?.addEventListener('click', async function(e) {
 minusAll?.forEach((c,i)=>{
     c.addEventListener('click', function(){
         console.log(this,i)
-        console.log(+quantitySize[i].textContent++)
+        console.log(+quantitySize[i].textContent--)
+        
     })
 })
