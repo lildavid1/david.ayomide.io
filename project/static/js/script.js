@@ -8,7 +8,8 @@ const productPrice = document.querySelectorAll('.product_price_list');
 const formLogin = document.querySelector('.form');
 const re = document.querySelector('.re')
 const total = document.querySelector('.total')
-const minusAll = document.querySelector(')
+const minusAll = document.querySelectorAll('.minus')
+const plusAll = document.querySelectorAll('.plus')
 
 input?.addEventListener('keyup', async function(e) {
     let response = await fetch(`/search?q=${this.value}`);
@@ -39,9 +40,9 @@ re?.addEventListener('click', async function(e) {
     }
 });
 
-btns?.forEach(btn => {
-    btn.addEventListener('click', function() {
-        this.textContent++
-    })
-})
+// btns?.forEach(btn => {
+//     btn.addEventListener('click', function() {
+//         this.textContent++
+//     })
+// })
 
