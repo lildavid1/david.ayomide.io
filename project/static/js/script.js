@@ -8,7 +8,7 @@ const productPrice = document.querySelectorAll('.product_price_list');
 const formLogin = document.querySelector('.form');
 const re = document.querySelector('.re')
 const total = document.querySelector('.total')
-
+const minusAll = document.querySelector(')
 
 input?.addEventListener('keyup', async function(e) {
     let response = await fetch(`/search?q=${this.value}`);
