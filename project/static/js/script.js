@@ -41,15 +41,10 @@ re?.addEventListener('click', async function(e) {
     }
 });
 
-// btns?.forEach(btn => {
-//     btn.addEventListener('click', function() {
-//         this.textContent++
-//     })
-// })
-
 minusAll?.forEach((c,i)=>{
     c.addEventListener('click', function(){
-        console.log(this,i)
+        if(+this.textContent === 0) this.disabled = true
+        console.log(this)
         console.log(+quantitySize[i].textContent--)
 
     })
