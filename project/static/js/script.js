@@ -54,3 +54,4 @@ plusAll?.forEach((c,i)=>{
         console.log(+quantitySize[i].textContent++)
     })
 })
+s
