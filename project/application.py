@@ -30,27 +30,26 @@ dbl = SQL("sqlite:///project.db")
 # setting up session
 # app.config['SESSION_TYPE'] = 'redis'
 # app.config['SESSION_REDIS'] = Redis.from_url(os.getenv("REDIS"))
-app.config['SESSION_TYPE'] = 'filesystem'
+app.config["SESSION_TYPE"] = "filesystem"
 app.permanent_session_lifetime = timedelta(days=5)
 Session(app)
 
 # ensure templates auto reload
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
-
     if request.method == "GET":
         return render_template("register.html")
 
     if request.method == "POST":
-
         # select data from onsubmit
         email = request.form.get("email")
         username = request.form.get("username").lower().strip()
         password = request.form.get("password")
         full_name = request.form.get("full_name")
-        token = ''.join(random.choices(string.ascii_letters + string.digits, k=32))
+        token = "".join(random.choices(string.ascii_letters + string.digits, k=32))
 
         # generate password hash
         hash = generate_password_hash(password)
@@ -81,7 +80,6 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-
     session.clear()
 
     if request.method == "GET":
@@ -143,7 +141,7 @@ def product():
 
     [*ids] = set(session["cart"])
     items = dbl.execute("SELECT * FROM products WHERE id IN (?)", ids)
-    return render_template("cart.html", items=items, name=('000ayo'))
+    return render_template("cart.html", items=items, name=("000ayo"))
 
 
 @app.route("/remove", methods=["GET", "POST"])
@@ -166,7 +164,7 @@ def remove():
 @app.route("/search")
 def search():
     q = request.args.get("q")
-    search_list = dbl.execute(os.getenv("SEARCH"), '%' + q + '%') if q else []
+    search_list = dbl.execute(os.getenv("SEARCH"), "%" + q + "%") if q else []
     return jsonify(search_list)
 
 
@@ -175,11 +173,14 @@ def product_view(a):
     products = dbl.execute("SELECT * FROM products WHERE title = (?)", a)
     return render_template("product_view.html", products=products)
 
+
 @app.route("/auth/<userid>/<token>")
 def auth(userid, token):
     row = dbp.execute("SELECT * FROM registrants WHERE id = (?)", userid)
     for i in row:
-        redirect_url = redirect("/login") if token == i['token'] else redirect("/register")
+        redirect_url = (
+            redirect("/login") if token == i["token"] else redirect("/register")
+        )
         return redirect_url
 
 
@@ -192,14 +193,18 @@ def index():
     products = dbl.execute("SELECT * FROM products")
     return render_template("homepage.html", products=products, search_list=search_list)
 
+
 @app.route("/api/user")
 def api():
     userid = request.args.get("userid")
-    row = dbp.execute("SELECT * FROM registrants") if userid == 'users' else dbp.execute("SELECT * FROM registrants WHERE username = ?", userid)
+    row = (
+        dbp.execute("SELECT * FROM registrants")
+        if userid == "users"
+        else dbp.execute("SELECT * FROM registrants WHERE username = ?", userid)
+    )
     return row
+
 
 @app.route("/api/lol/kol")
 def apijik():
     return redirect("/product")
-
-
