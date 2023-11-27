@@ -1,4 +1,4 @@
-import os, random, string, secrets, psycopg2, this
+import os, random, string, secrets, psycopg2
 from flask import *
 from datetime import timedelta
 from cs50 import *
@@ -8,7 +8,6 @@ from flask_mail import *
 from redis import Redis
 
 app = Flask(__name__)
-print(request)
 
 app.secret_key = secrets.token_hex(16)
 
@@ -85,7 +84,7 @@ def login():
     session.clear()
 
     if request.method == "GET":
-        print(this)
+
         return render_template("login.html")
 
     if request.method == "POST":
