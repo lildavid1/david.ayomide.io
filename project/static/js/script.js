@@ -49,7 +49,7 @@ minusAll?.forEach((c, i) => {
 })
 plusAll?.forEach((c, i) => {
     c.addEventListener('click', function() {
-        
+        minusAll[i]?.disabled = false;
         console.log(+quantitySize[i].textContent++)
     })
 })
