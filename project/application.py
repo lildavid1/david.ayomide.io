@@ -63,7 +63,8 @@ def register():
 
             message = Message("Email Confirmation", recipients=[email])
             message.body = render_template("email.html")
-            row = dbm.execute("SELECT * FROM registrants WHERE email = (?)", email)
+            row = dbp.execute("SELECT * FROM registrants WHERE email = (?)", email)
+            print(row)
             message.html = render_template("email.html", username=username, row=row)
             mail.send(message)
 
@@ -174,13 +175,13 @@ def product_view(a):
     return render_template("product_view.html", products=products)
 
 
-@app.route("/auth/<userid>/<token>")
-def auth(userid, token):
+@app.route("/auth/userid")
+def auth():
+    userid = request.args.get("userid")
+    usertoken = request.args.get("usertoken")
     row = dbp.execute("SELECT * FROM registrants WHERE id = (?)", userid)
     for i in row:
-        redirect_url = (
-            redirect("/login") if token == i["token"] else redirect("/register")
-        )
+        redirect_url = redirect("/login") if usertoken == i["token"] else redirect("/register")
         return redirect_url
 
 
@@ -197,11 +198,9 @@ def index():
 @app.route("/api/user")
 def api():
     userid = request.args.get("userid")
-    row = (
-        dbp.execute("SELECT * FROM registrants")
-        if userid == "users"
-        else dbp.execute("SELECT * FROM registrants WHERE username = ?", userid)
-    )
+    usertoken = request.args.get("usertoken")
+    print(usertoken)
+    row = (dbp.execute("SELECT * FROM registrants") if userid == "users" else dbp.execute("SELECT * FROM registrants WHERE username = ?", userid))
     return row
 
 
