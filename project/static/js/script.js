@@ -49,6 +49,7 @@ minusAll?.forEach((c, i) => {
 })
 plusAll?.forEach((c, i) => {
     c.addEventListener('click', function() {
+        
         console.log(+quantitySize[i].textContent++)
     })
 })
