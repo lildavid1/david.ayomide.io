@@ -53,6 +53,6 @@ plusAll?.forEach((c, i) => {
         +quantitySize[i].textContent++
     })
 })
- 
+
 
 
