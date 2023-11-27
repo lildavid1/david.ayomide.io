@@ -1,4 +1,4 @@
-import os, random, string, secrets, psycopg2
+import os, random, string, secrets, psycopg2, this
 from flask import *
 from datetime import timedelta
 from cs50 import *
@@ -84,6 +84,7 @@ def login():
     session.clear()
 
     if request.method == "GET":
+        print(this)
         return render_template("login.html")
 
     if request.method == "POST":
