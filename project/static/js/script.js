@@ -54,4 +54,7 @@ plusAll?.forEach((c, i) => {
 })
 
 
-
+const Api = function(name, sch){
+    this.name = name;
+    this.sch = sch
+}
