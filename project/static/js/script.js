@@ -43,7 +43,7 @@ re?.addEventListener('click', async function(e) {
 
 minusAll?.forEach((c, i) => {
     c.addEventListener('click', function() {
-        if (+quantitySize.textContent === 0) this.disabled = true
+        if (+quantitySize[i].textContent === 0) this.disabled = true
         console.log(this.__proto__)
         console.log(+quantitySize[i].textContent--)
 
