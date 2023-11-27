@@ -8,6 +8,7 @@ from flask_mail import *
 from redis import Redis
 
 app = Flask(__name__)
+print(request)
 
 app.secret_key = secrets.token_hex(16)
 
