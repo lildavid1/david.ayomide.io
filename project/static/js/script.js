@@ -54,9 +54,6 @@ plusAll?.forEach((c, i) => {
         console.log(+quantitySize[i].textContent++)
     })
 })
-const jumiaApi = async function() {
-    const response = await fetch('https://www.jumia.com.ng/fashion-smart-fashion-breathable-unisex-sneakerscanvas-white-43411455.html')
-    console.log(await response.text())
-}
+
 
 
