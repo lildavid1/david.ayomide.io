@@ -69,5 +69,4 @@ const Person = function(firstName, birthYear) {
 console.log(new Person('ayo', 2004))
 
 
-console.log(Person.prototy)
-s
+console.log(Person.prototype)
