@@ -67,3 +67,6 @@ const Person = function(firstName, birthYear) {
 }
 
 
+Person.prototype.calcAge = function() {
+     console.log(2023 - this.birthYear)
+}
