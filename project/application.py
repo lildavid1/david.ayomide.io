@@ -10,7 +10,7 @@ from redis import Redis
 app = Flask(__name__)
 
 app.secret_key = secrets.token_hex(16)
-
+ 
 # configure flask mails
 app.config["MAIL_DEFAULT_SENDER"] = os.getenv("MAIL_DEFAULT_SENDER")
 app.config["MAIL_PASSWORD"] = os.getenv("MAIL_PASSWORD")
