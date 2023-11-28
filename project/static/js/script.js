@@ -41,7 +41,7 @@ re?.addEventListener('click', async function(e) {
 });
 
 minusAll?.forEach((c, i) => {
-    
+    if(+quantitySize[i] === 0) c.disabled = true
     c.addEventListener('click', function() {
         if (+quantitySize[i].textContent === 0) this.disabled = true
         else +quantitySize[i].textContent--
