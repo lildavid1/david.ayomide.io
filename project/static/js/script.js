@@ -40,19 +40,40 @@ re?.addEventListener('click', async function(e) {
     }
 });
 
+// minusAll?.forEach((c, i) => {
+//     if(+quantitySize[i] === 0) c.disabled = true
+//     c.addEventListener('click', function() {
+//         if (+quantitySize[i].textContent === 0) this.disabled = true
+//         else this.disabled = false +quantitySize[i].textContent--
+//     })
+// })
+// plusAll?.forEach((c, i) => {
+//     c.addEventListener('click', function() {
+//         minusAll[i].disabled = false
+//         +quantitySize[i].textContent++
+//     })
+// })
 minusAll?.forEach((c, i) => {
-    if(+quantitySize[i] === 0) c.disabled = true
-    c.addEventListener('click', function() { 
-        if (+quantitySize[i].textContent === 0) this.disabled = true
-        else +quantitySize[i].textContent--
-    })
-})
+    if (+quantitySize[i].textContent === 0) {
+        c.disabled = true;
+    }
+
+    c.addEventListener('click', function() {
+        if (+quantitySize[i].textContent === 0) {
+            this.disabled = true;
+        } else {
+            this.disabled = false;
+            +quantitySize[i].textContent--;
+        }
+    });
+});
+
 plusAll?.forEach((c, i) => {
     c.addEventListener('click', function() {
-        minusAll[i].disabled = false
-        +quantitySize[i].textContent++
-    })
-})
+        minusAll[i].disabled = false;
+        +quantitySize[i].textContent++;
+    });
+});
 
 
 
