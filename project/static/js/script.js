@@ -70,4 +70,4 @@ console.log(new Person('ayo', 2004))
 
 
 console.log(Person.prototy)
-ss
+s
