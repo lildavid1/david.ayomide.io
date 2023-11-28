@@ -61,5 +61,12 @@ plusAll?.forEach((c, i) => {
     });
 });
 
+const Person = function(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear
+    this.calgeAge = function() {
+        console.log(2037 - this.birthYear)
+    }
+}
 
-
+console.log(new Person('ayo', 2004))
