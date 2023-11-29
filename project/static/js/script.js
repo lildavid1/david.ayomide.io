@@ -32,7 +32,6 @@ const api = async function(e) {
 };
 
 re?.addEventListener('click', async function(e) {
-    // console.log(...this.classList, this.className)
     const rety = await fetch('/api/lol/kol');
     console.log(await rety)
     if (rety.redirected) {
