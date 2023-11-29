@@ -73,5 +73,5 @@ Person.prototype.calcAge = function() {
 Person.prototype.species = ['hujd', 'gbybds']
 
 Array.prototype.unique =function(){
-    console.log(this)
+    console.log(...new Set(...this))
 }
