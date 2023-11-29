@@ -65,8 +65,8 @@ const Car = function(make, speed){
     this.speed = speed
 }
 Car.prototype.brake = function(){
-    return this.speed - 10
+    return this.speed - 5
 }
 Car.prototype.accelerate = function(){
-    return this.speed - 5
+    return this.speed + 10
 }
