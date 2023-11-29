@@ -60,14 +60,7 @@ plusAll?.forEach((c, i) => {
     });
 });
 
-const Person = function(firstName, birthYear) {
-    this.firstName = firstName;
-    this.birthYear = birthYear
+const Car = function(make, speed){
+    this.make = make;
+    this.speed = speed
 }
-
-
-Person.prototype.calcAge = function() {
-     console.log(2023 - this.birthYear)
-}
-Person.prototype.species = ['hujd', 'gbybds']
-
