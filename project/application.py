@@ -199,6 +199,7 @@ def index():
 def api():
     userid = request.args.get("userid")
     usertoken = request.args.get("usertoken")
-    row = (dbp.execute("SELECT * FROM registrants") if userid == "users" else dbp.execute("SELECT * FROM registrants WHERE username = ?", userid))
+    row = dbp.execute("SELECT * FROM registrants WHERE username")
+    # row = (dbp.execute("SELECT * FROM registrants") if userid == "users" else dbp.execute("SELECT * FROM registrants WHERE username = ?", userid))
     return jsonify(row)
 
