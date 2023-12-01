@@ -21,7 +21,7 @@ app.config["MAIL_USERNAME"] = os.getenv("MAIL_USERNAME")
 mail = Mail(app)
 
 # setup databases
-db = SQL(os.getenv("URI"))
+# db = SQL(os.getenv("URI")
 dbS = SQL(os.getenv("SUPA"))
 dbm = SQL(os.getenv("MYSQL"))
 dbp = SQL(os.getenv("PSCALE"))
