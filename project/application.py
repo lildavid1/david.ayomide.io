@@ -171,7 +171,8 @@ def search():
 
 @app.route("/view/<a>")
 def product_view(a):
-    products = dbl.execute("SELECT * FROM products WHERE title = (?)", a)
+    print(a.replace('/', ' '))
+    products = dbl.execute("SELECT * FROM products WHERE title = (?)", a.replace('/', ' '))
     return render_template("product_view.html", products=products)
 
 
