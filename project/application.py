@@ -205,7 +205,3 @@ def api():
     row = (dbp.execute("SELECT * FROM registrants") if userid == "users" else dbp.execute("SELECT * FROM registrants WHERE username = ?", userid))
     return row
 
-
-@app.route("/api/lol/kol")
-def apijik():
-    return redirect("/product")
