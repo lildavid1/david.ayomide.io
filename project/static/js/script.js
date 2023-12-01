@@ -31,7 +31,6 @@ const api = async function(e) {
     console.log(...rest)
 };
 
-
 minusAll?.forEach((c, i) => {
     if (+quantitySize[i].textContent === 0) {
         c.disabled = true;
