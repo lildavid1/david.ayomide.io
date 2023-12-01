@@ -179,7 +179,7 @@ def product_view(a):
 def auth():
     userid = request.args.get("userid")
     usertoken = request.args.get("usertoken")
-    row = dbp.execute("SELECT * FROM registrants WHERE username = (?)", userid)
+    row = dbp.execute("SELECT * FROM registrants WHERE id = (?)", userid)
     for i in row:
         redirect_url = redirect("/login") if usertoken == i["token"] else redirect("/register")
         return redirect_url
