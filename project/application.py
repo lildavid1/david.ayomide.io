@@ -189,7 +189,6 @@ def auth():
 @app.route("/")
 def index():
     if "register_id" not in session:
-        re
         return redirect("/login")
 
     search_list = dbl.execute("SELECT * FROM search LIMIT 20")
