@@ -56,4 +56,7 @@ plusAll?.forEach((c, i) => {
     });
 });
 
-homepage_link?.forEach(c => console.log(c?.textContent.length))
+homepage_link?.forEach(c => {
+    console.log(c.textContent.slice(-20))
+    return c.textContent.length > 20 ? c.textContent.slice(20) : c.textContent
+})
