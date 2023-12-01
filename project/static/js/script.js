@@ -12,7 +12,7 @@ const minusAll = document.querySelectorAll('.minus')
 const plusAll = document.querySelectorAll('.plus')
 const quantitySize = document.querySelectorAll('.quantity')
 
-input?.addEventListener('key', async function(e) {
+input?.addEventListener('keypress', async function(e) {
     let response = await fetch(`/search?q=${this.value}`);
     let searchList = await response.json();
     let html = '';
