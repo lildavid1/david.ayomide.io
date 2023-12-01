@@ -31,13 +31,7 @@ const api = async function(e) {
     console.log(...rest)
 };
 
-re?.addEventListener('click', async function(e) {
-    const rety = await fetch('/api/lol/kol');
-    console.log(await rety)
-    if (rety.redirected) {
-        window.location.href = rety.url;
-    }
-});
+
 minusAll?.forEach((c, i) => {
     if (+quantitySize[i].textContent === 0) {
         c.disabled = true;
@@ -60,13 +54,4 @@ plusAll?.forEach((c, i) => {
     });
 });
 
-const Car = function(make, speed){
-    this.make = make;
-    this.speed = speed
-}
-Car.prototype.brake = function(){
-    return this.speed - 5
-}
-Car.prototype.accelerate = function(){
-    return this.speed + 10
-}
+
