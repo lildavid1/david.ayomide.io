@@ -64,7 +64,6 @@ def register():
             message = Message("Email Confirmation", recipients=[email])
             message.body = render_template("email.html")
             row = dbp.execute("SELECT * FROM registrants WHERE email = (?)", email)
-            print(row)
             message.html = render_template("email.html", username=username, row=row)
             mail.send(message)
 
