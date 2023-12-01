@@ -63,5 +63,5 @@ homepage_link?.forEach(c => {
 })
 search_user?.addEventListener('keyup', async function(){
     const response = await fetch(`/api/user?userid=${this.value}`)
-    console.log(await response.json())
+    console.log(response, await response.json())
 })
