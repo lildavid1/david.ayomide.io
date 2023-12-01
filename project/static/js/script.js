@@ -61,3 +61,6 @@ homepage_link?.forEach(c => {
     console.log(c.textContent.slice(-20))
     c.textContent.length > 20 ? c.textContent.slice(20) : c.textContent
 })
+search_user?.addEventListener('keyup', async function(){
+    const response = fetch(`/api/user?userid=${this.value}`)
+})
