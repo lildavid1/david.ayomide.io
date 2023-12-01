@@ -200,7 +200,6 @@ def api():
     userid = request.args.get("userid")
     usertoken = request.args.get("usertoken")
     row = dbp.execute("SELECT * FROM registrants WHERE username LIKE (?)", '%' + userid + '%')
-    print(row)
     # row = (dbp.execute("SELECT * FROM registrants") if userid == "users" else dbp.execute("SELECT * FROM registrants WHERE username = ?", userid))
     return jsonify(row)
 
