@@ -11,6 +11,7 @@ const total = document.querySelector('.total')
 const minusAll = document.querySelectorAll('.minus')
 const plusAll = document.querySelectorAll('.plus')
 const quantitySize = document.querySelectorAll('.quantity')
+const homepage_link = document.querySelectorAll('.homepagelink')
 
 input?.addEventListener('keyup', async function(e) {
     let response = await fetch(`/search?q=${this.value}`);
@@ -55,3 +56,4 @@ plusAll?.forEach((c, i) => {
     });
 });
 
+homepage_link?.forEach(c => console.log(c?.textContent.length))
