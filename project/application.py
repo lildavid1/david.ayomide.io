@@ -172,6 +172,7 @@ def search():
 @app.route("/categories")
 def product_view():
     a = request.args.get("q")
+    print(a)
     products = dbl.execute("SELECT * FROM products WHERE title = (?)", a)
     return render_template("product_view.html", products=products)
 
