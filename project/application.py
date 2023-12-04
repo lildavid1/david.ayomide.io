@@ -169,8 +169,9 @@ def search():
     return jsonify(search_list)
 
 
-@app.route("/view/<a>")
-def product_view(a):
+@app.route("/categories")
+def product_view():
+    a = request.form.get("q")
     products = dbl.execute("SELECT * FROM products WHERE title = (?)", a)
     return render_template("product_view.html", products=products)
 

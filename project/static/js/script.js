@@ -20,7 +20,7 @@ input?.addEventListener('keyup', async function(e) {
     let html = '';
     searchList.flatMap(obj => {
         let title = obj?.title?.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('%20', ' ');
-        html += `<li class="li"><a class="anchor" href="/view/${title}">${title}</a></li>`;
+        html += `<li class="li"><a class="anchor" href="/categories?q=${title}">${title}</a></li>`;
     });
     document.querySelector('.ul').innerHTML = html;
 });
