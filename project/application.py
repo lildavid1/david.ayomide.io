@@ -22,9 +22,9 @@ mail = Mail(app)
 
 # setup databases
 # db = SQL(os.getenv("URI")
-dbS = SQL(os.getenv("SUPA"))
+# dbS = SQL(os.getenv("SUPA"))
 dbm = SQL(os.getenv("MYSQL"))
-dbp = SQL(os.getenv("PSCALE"))
+# dbp = SQL(os.getenv("PSCALE"))
 dbl = SQL("sqlite:///project.db")
 
 # setting up session
