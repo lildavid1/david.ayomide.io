@@ -41,7 +41,9 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "GET":
-        print(dbm.execute("select * from registrants")
+        
+        print(dbm.execute("select * from reegistrants")
+        
         return render_template("register.html")
 
     if request.method == "POST":
