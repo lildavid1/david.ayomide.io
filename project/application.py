@@ -70,8 +70,9 @@ def register():
             flash("Account created successfully", category="error")
             return redirect("/login")
 
-        except:
+        except Exception as error:
             flash("Credential has already been taken", category="error")
+            print(error)
             return redirect("/register")
 
     flash("Account created fine", category="error")
